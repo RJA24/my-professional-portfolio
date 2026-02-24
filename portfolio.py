@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Portfolio | Your Name", layout="wide", page_icon="💼")
+st.set_page_config(page_title="Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="💼")
 
 # --- CUSTOM CSS FOR PROFESSIONAL FEEL ---
 st.markdown("""
@@ -21,7 +21,7 @@ st.markdown("""
 col1, col2 = st.columns([1, 2], gap="large")
 with col1:
     # You can add a professional headshot here
-    st.image("https://via.placeholder.com/300", width=250) 
+    st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1).png?raw=true", width=250) 
 
 with col2:
     st.title("Your Name Here")
