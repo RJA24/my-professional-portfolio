@@ -24,7 +24,7 @@ with col1:
     st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1).png?raw=true", width=250) 
 
 with col2:
-    st.title("Your Name Here")
+    st.title("Ron Jay C. Ayup")
     st.write("📍 Abra, Philippines")
     st.subheader("Data Analyst | Health Information Systems Specialist")
     st.write("""
