@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Space Portfolio | Your Name", layout="wide", page_icon="🚀")
+st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="🚀")
 
 # --- SPACE THEME CSS ---
 st.markdown("""
@@ -61,7 +61,7 @@ with col1:
         """, unsafe_allow_html=True)
 
 with col2:
-    st.title("Your Name Here")
+    st.title("Ron Jay C. Ayup")
     st.subheader("🌌 Data Analyst & Cosmic Problem Solver")
     st.write("Specializing in turning vast 'data galaxies' into actionable insights.")
     st.button("Download Mission Log (Resume)")
