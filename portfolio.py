@@ -53,7 +53,7 @@ with st.container():
         st.write(" ")
         st.write(" ")
         # Link to your actual live dashboard
-        st.link_button("View Live Dashboard", "https://abra-sbi-dashboard.streamlit.app/")
+        st.link_button("View Live Dashboard", "https://abra-sbi-dashboard-5uubqi6rcsqdknxudevhrv.streamlit.app/")
     st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
