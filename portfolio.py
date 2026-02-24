@@ -1,75 +1,96 @@
 import streamlit as st
 
-st.set_page_config(page_title="Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="💼")
+st.set_page_config(page_title="Space Portfolio | Your Name", layout="wide", page_icon="🚀")
 
-# --- CUSTOM CSS FOR PROFESSIONAL FEEL ---
+# --- SPACE THEME CSS ---
 st.markdown("""
     <style>
-    .main { background-color: #f8f9fa; }
-    .stButton>button { width: 100%; border-radius: 5px; height: 3em; background-color: #007bff; color: white; }
-    .project-card {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #007bff;
-        box-shadow: 2px 2px 15px rgba(0,0,0,0.05);
+    /* 1. Deep Space Background */
+    [data-testid="stAppViewContainer"] {
+        background: radial-gradient(circle at top right, #1a1a2e, #16213e, #0f3460);
+        background-attachment: fixed;
+        color: #ffffff;
     }
+
+    /* 2. Glassmorphism Card Effect */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        margin-bottom: 25px;
+    }
+
+    /* 3. Glowing Text & Buttons */
+    h1, h2, h3 {
+        color: #4cc9f0 !important;
+        text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+    }
+    
+    .stButton>button {
+        background: linear-gradient(45deg, #7209b7, #3f37c9);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        transition: 0.3s;
+    }
+    .stButton>button:hover {
+        box-shadow: 0 0 20px #7209b7;
+        transform: translateY(-2px);
+    }
+
+    /* Hide standard Streamlit header/footer for clean look */
+    [data-testid="stHeader"] { background: rgba(0,0,0,0); }
+    footer { visibility: hidden; }
     </style>
     """, unsafe_allow_html=True)
 
 # --- HERO SECTION ---
-col1, col2 = st.columns([1, 2], gap="large")
+col1, col2 = st.columns([1, 2])
+
 with col1:
-    # You can add a professional headshot here
-    st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1).png?raw=true", width=250) 
+    # Use a circular style for your profile pic
+    st.markdown("""
+        <div style="display: flex; justify-content: center;">
+            <img src="https://via.placeholder.com/300/4cc9f0/ffffff?text=Your+Photo" 
+            style="border-radius: 50%; border: 4px solid #4cc9f0; width: 250px; box-shadow: 0 0 25px #4cc9f0;">
+        </div>
+        """, unsafe_allow_html=True)
 
 with col2:
-    st.title("Ron Jay C. Ayup")
-    st.write("📍 Abra, Philippines")
-    st.subheader("Data Analyst | Health Information Systems Specialist")
+    st.title("Your Name Here")
+    st.subheader("🌌 Data Analyst & Cosmic Problem Solver")
+    st.write("Specializing in turning vast 'data galaxies' into actionable insights.")
+    st.button("Download Mission Log (Resume)")
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# --- FEATURED PROJECT (GLASS CARD) ---
+st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+c1, c2 = st.columns([2, 1])
+with c1:
+    st.header("🛸 Project: Abra SBI Dashboard")
     st.write("""
-    I specialize in transforming complex health data into interactive visual stories. 
-    With a focus on public health and provincial-scale monitoring, I build tools that 
-    help decision-makers act faster and more accurately.
+    A real-time geospatial monitoring system built to track provincial vaccination coverage. 
+    Implemented custom ETL pipelines to sync Google Sheets with interactive Plotly maps.
     """)
-    st.button("✉️ Contact Me")
+    st.markdown("**Core Engines:** Python • Streamlit • Plotly • Google API")
+with c2:
+    st.write("<br>", unsafe_allow_html=True)
+    st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
+st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown("---")
-
-# --- FEATURED PROJECT ---
-st.header("🚀 Featured Project")
-with st.container():
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-    c1, c2 = st.columns([2, 1])
-    with c1:
-        st.subheader("Abra Provincial SBI Monitoring Dashboard")
-        st.write("""
-        Developed a real-time tracking system for the School-Based Immunization program. 
-        The system automates data collection from 27 municipalities and visualizes 
-        vaccination density using geospatial 'plasma' mapping.
-        """)
-        st.info("**Tech:** Python, Streamlit, Plotly, Google Sheets API, GIS Mapping")
-    with c2:
-        st.write(" ")
-        st.write(" ")
-        # Link to your actual live dashboard
-        st.link_button("View Live Dashboard", "https://abra-sbi-dashboard-5uubqi6rcsqdknxudevhrv.streamlit.app/")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown("---")
-
-# --- SKILLS ---
-st.header("🛠️ Technical Toolbox")
-sk1, sk2, sk3 = st.columns(3)
-with sk1:
-    st.write("**Data Analysis**")
-    st.caption("Pandas, NumPy, Python, Excel Automation")
-with sk2:
-    st.write("**Visualization**")
-    st.caption("Plotly Express, Mapbox, GIS, Matplotlib")
-with sk3:
-    st.write("**Infrastructure**")
-    st.caption("Streamlit Cloud, Git/GitHub, Google Cloud APIs")
-
-# --- FOOTER ---
-st.markdown("<br><br><center>Built with ❤️ using Python & Streamlit</center>", unsafe_allow_html=True)
+# --- SKILLS GRID ---
+st.header("🛠️ Tech Stack")
+s1, s2, s3, s4 = st.columns(4)
+with s1:
+    st.markdown('<div class="glass-card" style="text-align:center;"><b>Python</b></div>', unsafe_allow_html=True)
+with s2:
+    st.markdown('<div class="glass-card" style="text-align:center;"><b>Pandas</b></div>', unsafe_allow_html=True)
+with s3:
+    st.markdown('<div class="glass-card" style="text-align:center;"><b>Plotly</b></div>', unsafe_allow_html=True)
+with s4:
+    st.markdown('<div class="glass-card" style="text-align:center;"><b>SQL</b></div>', unsafe_allow_html=True)
