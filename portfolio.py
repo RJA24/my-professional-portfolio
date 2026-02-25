@@ -55,7 +55,7 @@ with col1:
     # Use a circular style for your profile pic
     st.markdown("""
         <div style="display: flex; justify-content: center;">
-            <img src="https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1).png?raw=true" 
+            <img src="https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1)%20-%20Copy.png?raw=true" 
             style="border-radius: 50%; border: 4px solid #4cc9f0; width: 250px; box-shadow: 0 0 25px #4cc9f0;">
         </div>
         """, unsafe_allow_html=True)
