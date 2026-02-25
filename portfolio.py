@@ -110,31 +110,30 @@ st.markdown("""
         padding: 20px !important;
     }
     
-    /* RADAR BEAM ANIMATION - GLITCH-FREE FIX */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-bg) {
-        position: relative;
-        overflow: hidden; /* Keeps the beam inside the glass card */
+    /* PERFECTLY CENTERED GLITCH-FREE RADAR BEAM */
+    [data-testid="stPlotlyChart"] {
+        position: relative !important;
+        z-index: 1 !important;
     }
     
-    /* Elevates the text and chart so the beam slides under them */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-bg) > * {
-        position: relative;
-        z-index: 2; 
-    }
-    
-    .radar-bg {
+    [data-testid="stPlotlyChart"]::before {
+        content: '' !important;
         position: absolute !important;
-        top: 245px !important; /* Precisely aligns with the vertical center of the chart */
-        left: 50% !important;
-        width: 300px !important; /* Matches the outer circle of your web */
-        height: 300px !important;
-        margin-top: -150px !important; /* Perfect margin centering replaces glitchy transform centering */
-        margin-left: -150px !important;
+        /* This combination guarantees absolute dead-center alignment */
+        top: 0 !important; 
+        bottom: 0 !important; 
+        left: 0 !important; 
+        right: 0 !important;
+        margin: auto !important;
+        
+        /* Sized to fit exactly behind the Plotly web */
+        width: 260px !important;
+        height: 260px !important;
         background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%) !important;
         border-radius: 50% !important;
         animation: stable-spin 4s infinite linear !important;
-        z-index: 0 !important;
         pointer-events: none !important;
+        z-index: -1 !important;
     }
     
     @keyframes stable-spin {
@@ -250,8 +249,6 @@ if page == "🏠 Basecamp (Home)":
     c1, c2 = st.columns([1, 1])
     with c1:
         with st.container(border=True):
-            # THE INDEPENDENT BACKGROUND BEAM
-            st.markdown('<div class="radar-bg"></div>', unsafe_allow_html=True)
             st.subheader("📊 Skill Universe")
             st.plotly_chart(fig, use_container_width=True)
 
