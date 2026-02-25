@@ -96,11 +96,11 @@ with st.sidebar:
     
     st.markdown("---")
     st.markdown("### 🔗 Comm Links")
-    st.markdown("📫 [Email](mailto:rj.ayup24@gmail.com)")
+    st.markdown("📫 [Email](mailto:ronjay.1204@gmail.com)")
     st.markdown("🐙 [GitHub](https://github.com/RJA24)")
-    st.markdown("💼 [LinkedIn](https://linkedin.com/)")
-    st.markdown("▶️ [YouTube](#)")
-    st.markdown("🎵 [TikTok](#)")
+    st.markdown("💼 [LinkedIn](https://www.linkedin.com/in/ron-jay-ayup-a1824b3b3)")
+    st.markdown("▶️ [YouTube](https://www.youtube.com/@JangTVyt)")
+    st.markdown("🎵 [TikTok](https://www.tiktok.com/@jangtv_)")
 
 # ==========================================
 # PAGE 1: HOME (BASECAMP)
@@ -120,7 +120,13 @@ if page == "🏠 Basecamp (Home)":
         st.markdown('<p style="color:#BC13FE; letter-spacing:3px; font-weight:bold; margin-bottom:0px;">A MESSAGE FROM EARTH</p>', unsafe_allow_html=True)
         st.title("Ron Jay C. Ayup")
         st.subheader("🌌 Tech-Forward Virtual Assistant & Data Analyst")
-        st.write("Leveraging AI, data automation, and creative video editing to build powerful tools and engaging digital content.")
+        
+        # --- NEW "ABOUT ME" SECTION ---
+        st.markdown("""
+        **Mission Overview:** I am a highly adaptable professional bridging the gap between complex data and compelling digital media. With a solid foundation in health data management, I specialize in transforming raw numbers into actionable insights and engaging content. Whether I'm orchestrating AI-assisted Python scripts, designing high-impact visual campaigns in Canva, or editing dynamic video content across platforms, I bring a unique, multi-disciplinary approach to problem-solving. I'm actively seeking Virtual Assistant roles where I can leverage my blend of analytical precision and creative storytelling to help teams operate at warp speed.
+        """)
+        
+        st.markdown("<br>", unsafe_allow_html=True)
         st.download_button("Download Mission Log (Resume)", data=dummy_resume, file_name="Ron_Jay_Resume.pdf", mime="application/pdf")
 
     st.markdown("<br>", unsafe_allow_html=True)
