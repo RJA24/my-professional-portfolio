@@ -21,28 +21,28 @@ fig.update_layout(
     height=350
 )
 
+# --- DUMMY RESUME DATA ---
+# Right now, this creates a blank text file. 
+# We will swap this out for your actual PDF later!
+dummy_resume = b"This is a placeholder for your stellar resume."
+
 # --- COSMIC CSS ---
 st.markdown("""
     <style>
-    /* Background Gradient + Twinkling Stars */
     [data-testid="stAppViewContainer"] {
         background: linear-gradient(180deg, #0D0221 0%, #16213e 50%, #0f3460 100%);
         background-attachment: fixed;
         color: #ffffff;
     }
-    
-    /* Sidebar Styling */
     [data-testid="stSidebar"] { background-color: rgba(26, 26, 46, 0.8); }
-
-    /* Floating Animation for Profile Pic */
+    
     @keyframes float {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-15px); }
         100% { transform: translateY(0px); }
     }
     .floating-img { animation: float 4s ease-in-out infinite; }
-
-    /* Glassmorphism Cards */
+    
     .glass-card {
         background: rgba(255, 255, 255, 0.07);
         backdrop-filter: blur(15px);
@@ -51,19 +51,18 @@ st.markdown("""
         padding: 25px;
         margin-bottom: 20px;
     }
-
-    /* Glow Effects */
     h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
     
-    .stButton>button { 
+    /* Ensure BOTH regular buttons and download buttons get the cool gradient */
+    .stButton>button, [data-testid="stDownloadButton"] button { 
         background: linear-gradient(45deg, #7209b7, #3f37c9); 
         color: white; 
         border-radius: 50px; 
         border: none;
         padding: 10px 20px;
+        transition: 0.3s ease;
     }
-    
-    .stButton>button:hover {
+    .stButton>button:hover, [data-testid="stDownloadButton"] button:hover {
         box-shadow: 0 0 20px rgba(114, 9, 183, 0.7);
         color: white;
     }
@@ -98,7 +97,14 @@ with col2:
     st.title("Ron Jay C. Ayup")
     st.subheader("🌌 Data Analyst & Cosmic Problem Solver")
     st.write("Turning vast 'data galaxies' into actionable insights with Python and a touch of stardust.")
-    st.button("Download Mission Log (Resume)")
+    
+    # NEW: Functional Download Button
+    st.download_button(
+        label="Download Mission Log (Resume)",
+        data=dummy_resume,
+        file_name="Ron_Jay_Resume.pdf",
+        mime="application/pdf"
+    )
 
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -112,11 +118,14 @@ with c1:
     st.markdown('</div>', unsafe_allow_html=True)
 
 with c2:
-    st.markdown('<div class="glass-card" style="height: 425px;">', unsafe_allow_html=True)
+    st.markdown('<div class="glass-card" style="height: 100%;">', unsafe_allow_html=True)
     st.header("🛸 Project: Abra SBI")
+    
+    # NEW: Added a sleek preview image of a dashboard to fill the empty space!
+    st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", use_container_width=True)
+    
     st.write("A real-time geospatial monitoring system built to track provincial vaccination coverage.")
     st.markdown("**Core Engines:** `Python` • `Streamlit` • `Plotly` • `Google API`")
-    st.write("<br><br>", unsafe_allow_html=True)
     st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
     st.markdown('</div>', unsafe_allow_html=True)
 
