@@ -5,7 +5,7 @@ import pandas as pd
 # MUST BE FIRST
 st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="🚀")
 
-# --- DATA FOR RADAR CHART ---
+# --- DATA & ASSETS ---
 df = pd.DataFrame(dict(
     r=[90, 85, 70, 80, 75],
     theta=['Python','Pandas','SQL','Plotly','ETL']))
@@ -21,7 +21,6 @@ fig.update_layout(
     height=350
 )
 
-# --- DUMMY RESUME DATA ---
 dummy_resume = b"This is a placeholder for your stellar resume."
 
 # --- COSMIC CSS ---
@@ -146,7 +145,7 @@ if page == "🏠 Basecamp (Home)":
 # ==========================================
 elif page == "🛸 Mission Logs (Projects)":
     st.title("🛸 Mission Logs & Deep Space Projects")
-    st.write("A detailed archive of my data monitoring systems, visual design layouts, and cartography.")
+    st.write("A detailed archive of my data monitoring systems, visual design layouts, and public health tracking architecture.")
     st.markdown("<br>", unsafe_allow_html=True)
     
     # --- Project 1: Abra SBI ---
@@ -161,7 +160,37 @@ elif page == "🛸 Mission Logs (Projects)":
         st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # --- Project 2: Canva Visuals & Cartography ---
+    # --- Project 2: Google Sheets NIP Trackers ---
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.header("📊 NIP Data Tracking & Automation")
+    st.write("Engineered comprehensive Google Sheet trackers to monitor, evaluate, and manage National Immunization Program (NIP) activities, streamlining data collection for vital public health initiatives.")
+    st.markdown("**Core Engines:** `Google Sheets` • `Data Management` • `NIP Tracking` • `Data Validation`")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    nip_c1, nip_c2 = st.columns(2)
+    with nip_c1:
+        st.markdown("### 💉 Immunization Campaigns")
+        st.markdown("""
+        <div class="project-list">
+        • School Based Immunization Tracker (2024 & 2025) <br>
+        • bOPV Supplemental Immunization Activity (2023 & 2024) <br>
+        • MR Supplemental Immunization Activity (2023 & 2024)
+        </div>
+        """, unsafe_allow_html=True)
+
+    with nip_c2:
+        st.markdown("### 📋 Logistics & Outbreak Response")
+        st.markdown("""
+        <div class="project-list">
+        • COVID-19 Vaccination Tracker <br>
+        • Flu Vaccination Tracker <br>
+        • Vaccine Physical Inventory Tracker <br>
+        • <i>And many more custom surveillance tools...</i>
+        </div>
+        """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # --- Project 3: Canva Visuals & Cartography ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.header("🎨 Visual Design & Cartography")
     st.write("Conceptualized and designed high-impact visual assets and maps for critical public health initiatives and disaster risk reduction programs.")
