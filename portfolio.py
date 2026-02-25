@@ -5,7 +5,7 @@ import pandas as pd
 # MUST BE FIRST
 st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="🚀")
 
-# --- DATA & ASSETS ---
+# --- DATA FOR RADAR CHART ---
 df = pd.DataFrame(dict(
     r=[90, 85, 70, 80, 75],
     theta=['Python','Pandas','SQL','Plotly','ETL']))
@@ -21,6 +21,7 @@ fig.update_layout(
     height=350
 )
 
+# --- DUMMY RESUME DATA ---
 dummy_resume = b"This is a placeholder for your stellar resume."
 
 # --- COSMIC CSS ---
@@ -78,6 +79,12 @@ st.markdown("""
     div[role="radiogroup"] > label:hover {
         background: rgba(76, 201, 240, 0.2);
     }
+    
+    /* Custom list styling for projects */
+    .project-list {
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -86,7 +93,6 @@ with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/2026/2026462.png", width=80)
     st.markdown("### 📡 Mission Control")
     
-    # NEW: Multi-Page Navigation Logic
     page = st.radio("Select Sector:", ["🏠 Basecamp (Home)", "🛸 Mission Logs (Projects)"])
     
     st.markdown("---")
@@ -117,7 +123,6 @@ if page == "🏠 Basecamp (Home)":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Skills & Contact Section
     c1, c2 = st.columns([1, 1])
     with c1:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
@@ -141,10 +146,10 @@ if page == "🏠 Basecamp (Home)":
 # ==========================================
 elif page == "🛸 Mission Logs (Projects)":
     st.title("🛸 Mission Logs & Deep Space Projects")
-    st.write("A detailed archive of my data monitoring systems and visual design layouts.")
+    st.write("A detailed archive of my data monitoring systems, visual design layouts, and cartography.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Project 1: Abra SBI
+    # --- Project 1: Abra SBI ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     p1_col1, p1_col2 = st.columns([1, 2])
     with p1_col1:
@@ -156,13 +161,33 @@ elif page == "🛸 Mission Logs (Projects)":
         st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # Project 2: Heart Smart Celebration Tarpaulin
+    # --- Project 2: Canva Visuals & Cartography ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    p2_col1, p2_col2 = st.columns([1, 2])
-    with p2_col1:
-        st.image("https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071&auto=format&fit=crop", use_container_width=True)
-    with p2_col2:
-        st.header("Heart Smart Celebration 2026 Visuals")
-        st.write("Conceptualized and designed high-impact tarpaulin layouts to drive engagement and visual presence for the Heart Smart Celebration event.")
-        st.markdown("**Core Engines:** `Canva` • `Graphic Design` • `Visual Layout`")
+    st.header("🎨 Visual Design & Cartography")
+    st.write("Conceptualized and designed high-impact visual assets and maps for critical public health initiatives and disaster risk reduction programs.")
+    st.markdown("**Core Engines:** `Canva` • `Graphic Design` • `Cartography`")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    canva_c1, canva_c2 = st.columns(2)
+    with canva_c1:
+        st.markdown("### 🏥 Health & Training Events")
+        st.markdown("""
+        <div class="project-list">
+        • Buntis Congress Sticker Layout <br>
+        • Basic Life Support & Standard First Aid Training Tarpaulin <br>
+        • Hearts Month Celebration 2026 Tarpaulin <br>
+        • National Oral Health Month 2026 Tarpaulin
+        </div>
+        """, unsafe_allow_html=True)
+
+    with canva_c2:
+        st.markdown("### 🚨 DRRM-H & Mapping")
+        st.markdown("""
+        <div class="project-list">
+        • DRRM Plan Cover Page Layout <br>
+        • Pre-planning of the 2026-2028 DRRM-H Plan Tarpaulin <br>
+        • Finalization of the 2026-2028 DRRM-H Plan Tarpaulin <br>
+        • High Resolution Health Facility Map of Abra
+        </div>
+        """, unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
