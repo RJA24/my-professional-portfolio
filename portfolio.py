@@ -179,9 +179,13 @@ if page == "🏠 Basecamp (Home)":
     with c2:
         st.markdown('<div class="glass-card" style="height: 100%;">', unsafe_allow_html=True)
         st.subheader("📬 Contact the Bridge")
+        
+        # --- NEW WORKING CONTACT FORM WITH REDIRECT & AUTORESPONSE ---
         contact_form = """
         <form action="https://formsubmit.co/ronjay.1204@gmail.com" method="POST">
              <input type="hidden" name="_captcha" value="false">
+             <input type="hidden" name="_next" value="https://your-portfolio-url.streamlit.app/">
+             <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I have received your message and will get back to you as soon as I can.">
              <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background: rgba(255, 255, 255, 0.1); color: white;">
              <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background: rgba(255, 255, 255, 0.1); color: white;">
              <textarea name="message" placeholder="Your Message" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; height: 100px; background: rgba(255, 255, 255, 0.1); color: white;"></textarea>
@@ -189,6 +193,7 @@ if page == "🏠 Basecamp (Home)":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
+        
         st.markdown('</div>', unsafe_allow_html=True)
 
 # ==========================================
