@@ -110,46 +110,29 @@ st.markdown("""
         padding: 20px !important;
     }
     
-    /* RADAR BEAM ANIMATION - Bulletproof Implementation */
-    .radar-beam-container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 0px; /* Takes no space so it sits behind chart */
-    }
-    .radar-beam {
-        position: absolute;
-        width: 350px;
-        height: 350px;
-        top: 175px; /* Pushes it down behind the chart */
-        background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.5) 100%);
-        border-radius: 50%;
-        animation: radar-spin 4s infinite linear;
-        pointer-events: none;
-        z-index: 0;
-    }
-    
-    /* AUTO-SPIN CHART WITH HOVER PAUSE */
+    /* PERFECTLY CENTERED RADAR BEAM */
     [data-testid="stPlotlyChart"] {
         position: relative;
         z-index: 1;
-        animation: slow-spin 25s infinite linear;
-        border-radius: 50%;
     }
-    [data-testid="stPlotlyChart"]:hover {
-        animation-play-state: paused;
+    [data-testid="stPlotlyChart"]::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 250px; /* Matches the size of the inner radar web */
+        height: 250px;
+        background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.5) 100%);
+        border-radius: 50%;
+        /* The translate exactly centers it, and it stays centered while rotating */
+        animation: radar-spin 4s infinite linear;
+        pointer-events: none;
+        z-index: -1; 
     }
     
     @keyframes radar-spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-    
-    @keyframes slow-spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
     }
     
     h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
@@ -261,10 +244,7 @@ if page == "🏠 Basecamp (Home)":
     with c1:
         with st.container(border=True):
             st.subheader("📊 Skill Universe")
-            
-            # THE BULLETPROOF RADAR BEAM (Sits directly behind the chart)
-            st.markdown('<div class="radar-beam-container"><div class="radar-beam"></div></div>', unsafe_allow_html=True)
-            
+            # Removed the extra div completely. Radar beam is now safely inside the CSS.
             st.plotly_chart(fig, use_container_width=True)
 
     with c2:
