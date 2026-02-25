@@ -111,28 +111,39 @@ st.markdown("""
         margin-bottom: 20px;
     }
     
-    /* NEW: Radar Scanner Animation */
-    .radar-wrapper {
+    /* NEW: Fixed Radar Scanner Animation */
+    .radar-container {
         position: relative;
         overflow: hidden;
+        border-radius: 20px;
+        padding: 4px; /* Creates space for the beam to show */
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
         z-index: 1;
     }
-    .radar-wrapper::before {
+    .radar-container::before {
         content: '';
         position: absolute;
         top: -50%;
         left: -50%;
         width: 200%;
         height: 200%;
-        background: conic-gradient(transparent 70%, rgba(76, 201, 240, 0.35) 100%);
-        border-radius: 50%;
+        background: conic-gradient(transparent 70%, rgba(188, 19, 254, 0.7) 100%);
         animation: radar-spin 4s infinite linear;
-        pointer-events: none; /* Prevents blocking hovers */
-        z-index: -1; /* Puts it behind the chart */
+        pointer-events: none;
+        z-index: -1;
     }
     @keyframes radar-spin {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
+    }
+    .radar-inner {
+        background: #0D0221;
+        border-radius: 16px;
+        padding: 20px;
+        height: 100%;
     }
     
     h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
@@ -243,11 +254,11 @@ if page == "🏠 Basecamp (Home)":
 
     c1, c2 = st.columns([1, 1])
     with c1:
-        # HERE IS THE RADAR WRAPPER ADDITION
-        st.markdown('<div class="glass-card radar-wrapper">', unsafe_allow_html=True)
+        # NEW STRUCTURE: Applying the radar beam around the chart properly
+        st.markdown('<div class="radar-container"><div class="radar-inner">', unsafe_allow_html=True)
         st.subheader("📊 Skill Universe")
         st.plotly_chart(fig, use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div></div>', unsafe_allow_html=True)
 
     with c2:
         st.markdown('<div class="glass-card" style="height: 100%;">', unsafe_allow_html=True)
