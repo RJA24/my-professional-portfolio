@@ -1,5 +1,3 @@
-sending you the code of my portfolio
-
 import streamlit as st
 
 st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="🚀")
