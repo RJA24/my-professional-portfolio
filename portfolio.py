@@ -64,7 +64,7 @@ with col1:
     # Profile Picture with Neon Glow & Floating Effect
     st.markdown("""
         <div style="display: flex; justify-content: center;">
-            <img src="https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1).png?raw=true" 
+            <img src="https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1)%20-%20Copy.png?raw=true" 
             class="floating-img"
             style="border-radius: 50%; border: 4px solid #4cc9f0; width: 260px; height: 260px; object-fit: cover; box-shadow: 0 0 30px rgba(76, 201, 240, 0.5);">
         </div>
