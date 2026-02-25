@@ -1,5 +1,24 @@
 import streamlit as st
+import plotly.express as px
+import pandas as pd
 
+# 1. Create dummy data for your 'Skill Universe'
+df = pd.DataFrame(dict(
+    r=[90, 85, 70, 80, 75],
+    theta=['Python','Pandas','SQL','Plotly','ETL']))
+
+fig = px.line_polar(df, r='r', theta='theta', line_close=True)
+fig.update_traces(fill='toself', line_color='#4cc9f0')
+fig.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0)',
+    font_color="white",
+    margin=dict(l=20, r=20, t=20, b=20),
+    height=300
+)
+
+# 2. To display it, add this inside a new 'glass-card' or column:
+# st.plotly_chart(fig, use_container_width=True)
 st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="🚀")
 
 # --- CONSOLIDATED COSMIC CSS ---
