@@ -110,47 +110,17 @@ st.markdown("""
         padding: 20px !important;
     }
     
-    /* PERFECTLY CENTERED GLITCH-FREE RADAR BEAM */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has([data-testid="stPlotlyChart"]) {
-        position: relative !important;
-        overflow: hidden !important; 
-        z-index: 1 !important;
-    }
-    
-    div[data-testid="stVerticalBlockBorderWrapper"]:has([data-testid="stPlotlyChart"])::before {
-        content: '' !important;
-        position: absolute !important;
-        
-        /* Anchors the top-left corner of the beam exactly in the center of the box */
-        top: 55% !important; 
-        left: 50% !important;
-        
-        /* Exact size of the radar web */
-        width: 300px !important;
-        height: 300px !important;
-        
-        /* Pulls the beam back by exactly half its size to center it flawlessly */
-        margin-top: -150px !important; 
-        margin-left: -150px !important;
-        
-        background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%) !important;
-        border-radius: 50% !important;
-        
-        /* Pure rotation without touching translations to prevent glitching */
-        animation: stable-spin 4s infinite linear !important;
-        pointer-events: none !important;
-        z-index: 0 !important;
-    }
-    
-    /* Ensure the chart is layered above the beam */
-    [data-testid="stPlotlyChart"] {
-        position: relative !important;
-        z-index: 2 !important;
-    }
-    
-    @keyframes stable-spin {
+    /* RADAR SPIN ANIMATION */
+    @keyframes radar-spin {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
+    }
+    
+    /* ENSURE CHART SITS ON TOP OF BEAM */
+    [data-testid="stPlotlyChart"] {
+        position: relative;
+        z-index: 10;
+        background: transparent !important;
     }
     
     h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
@@ -262,6 +232,14 @@ if page == "🏠 Basecamp (Home)":
     with c1:
         with st.container(border=True):
             st.subheader("📊 Skill Universe")
+            
+            # PURE HTML/CSS RADAR BEAM (Glitch-free, absolute centering)
+            st.markdown("""
+            <div style="position: relative; width: 100%; height: 0px; display: flex; justify-content: center; z-index: 0;">
+                <div style="position: absolute; top: 20px; width: 310px; height: 310px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%); animation: radar-spin 4s infinite linear; pointer-events: none;"></div>
+            </div>
+            """, unsafe_allow_html=True)
+            
             st.plotly_chart(fig, use_container_width=True)
 
     with c2:
