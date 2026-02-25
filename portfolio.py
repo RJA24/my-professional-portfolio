@@ -40,6 +40,30 @@ st.markdown("""
     }
     .floating-img { animation: float 4s ease-in-out infinite; }
     
+    /* NEW: Typing Animation CSS */
+    .typing-text {
+        overflow: hidden;
+        border-right: 3px solid #BC13FE; /* Neon purple cursor */
+        white-space: nowrap;
+        animation: typing 3.5s steps(45, end) forwards, blink 0.8s step-end infinite;
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #4cc9f0;
+        margin-top: -10px;
+        margin-bottom: 15px;
+        max-width: fit-content;
+    }
+    
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+    
+    @keyframes blink {
+        from, to { border-color: transparent; }
+        50% { border-color: #BC13FE; }
+    }
+    
     .glass-card {
         background: rgba(255, 255, 255, 0.07);
         backdrop-filter: blur(15px);
@@ -117,7 +141,9 @@ if page == "🏠 Basecamp (Home)":
     with col2:
         st.markdown('<p style="color:#BC13FE; letter-spacing:3px; font-weight:bold; margin-bottom:0px;">A MESSAGE FROM EARTH</p>', unsafe_allow_html=True)
         st.title("Ron Jay C. Ayup")
-        st.subheader("🌌 Tech-Forward Virtual Assistant & Data Analyst")
+        
+        # NEW: The animated typing text replaces the standard subheader
+        st.markdown('<div class="typing-text">🌌 Tech-Forward Virtual Assistant & Data Analyst</div>', unsafe_allow_html=True)
         
         st.markdown("""
         **Mission Overview:** I am a highly adaptable professional bridging the gap between complex data and compelling digital media. With a solid foundation in health data management, I specialize in transforming raw numbers into actionable insights and engaging content. Whether I'm orchestrating AI-assisted Python scripts, designing high-impact visual campaigns in Canva, or editing dynamic video content across platforms, I bring a unique, multi-disciplinary approach to problem-solving. I'm actively seeking Virtual Assistant roles where I can leverage my blend of analytical precision and creative storytelling to help teams operate at warp speed.
@@ -128,7 +154,7 @@ if page == "🏠 Basecamp (Home)":
 
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # --- NEW: CORE VA SERVICES SECTION ---
+    # --- CORE VA SERVICES SECTION ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.header("🛠️ Core VA Services")
     s1, s2, s3 = st.columns(3)
