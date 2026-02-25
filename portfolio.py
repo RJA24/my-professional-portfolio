@@ -109,57 +109,58 @@ st.markdown("""
         display: none !important;
     }
     
-    /* Standard Glass Card styling without native borders */
-    div[data-testid="stVerticalBlock"]:has(.glass-card-marker) {
-        background: rgba(255, 255, 255, 0.07);
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 25px;
+    /* Standard Glass Card styling - Updated for Darker Theme */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.glass-card-marker) {
+        background: rgba(0, 0, 0, 0.5) !important; /* Darker glass effect */
+        backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 20px !important;
+        padding: 20px !important;
         margin-bottom: 20px;
     }
     
     /* Radar Scanner Card styling */
-    div[data-testid="stVerticalBlock"]:has(.radar-card-marker) {
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker) {
         position: relative;
         overflow: hidden;
-        border-radius: 20px;
-        padding: 25px;
-        background: rgba(255, 255, 255, 0.07);
-        backdrop-filter: blur(15px);
+        border-radius: 20px !important;
+        padding: 20px !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        backdrop-filter: blur(10px) !important;
+        border: none !important; 
         margin-bottom: 20px;
     }
     
     /* The spinning purple beam */
-    div[data-testid="stVerticalBlock"]:has(.radar-card-marker)::before {
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker)::before {
         content: '';
         position: absolute;
         top: -50%;
         left: -50%;
         width: 200%;
         height: 200%;
-        background: conic-gradient(transparent 70%, rgba(188, 19, 254, 0.8) 100%);
+        background: conic-gradient(transparent 70%, rgba(188, 19, 254, 0.9) 100%);
         animation: radar-spin 4s infinite linear;
         pointer-events: none;
         z-index: 0;
     }
     
     /* The dark inner background that creates the thin glowing border effect */
-    div[data-testid="stVerticalBlock"]:has(.radar-card-marker)::after {
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker)::after {
         content: '';
         position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
-        background: #0D0221;
-        border-radius: 17px;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        background: #0D0221; /* Matches Deep Space Theme */
+        border-radius: 19px;
         pointer-events: none;
         z-index: 1;
     }
     
     /* Ensure the chart sits above the background */
-    div[data-testid="stVerticalBlock"]:has(.radar-card-marker) > div {
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker) > div {
         position: relative;
         z-index: 2;
     }
@@ -261,8 +262,7 @@ if page == "🏠 Basecamp (Home)":
 
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Notice the border=True is GONE from all containers below
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("🛠️ Core VA Services")
         s1, s2, s3 = st.columns(3)
@@ -278,13 +278,13 @@ if page == "🏠 Basecamp (Home)":
 
     c1, c2 = st.columns([1, 1])
     with c1:
-        with st.container():
+        with st.container(border=True):
             st.markdown('<span class="radar-card-marker"></span>', unsafe_allow_html=True)
             st.subheader("📊 Skill Universe")
             st.plotly_chart(fig, use_container_width=True)
 
     with c2:
-        with st.container():
+        with st.container(border=True):
             st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
             st.subheader("📬 Contact the Bridge")
             
@@ -309,7 +309,7 @@ elif page == "🛸 Mission Logs (Projects)":
     st.write("A detailed archive of my data monitoring systems, visual design layouts, public health tracking architecture, and video content.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         p1_col1, p1_col2 = st.columns([1, 2])
         with p1_col1:
@@ -320,7 +320,7 @@ elif page == "🛸 Mission Logs (Projects)":
             st.markdown("**Core Engines:** `Python` • `Streamlit` • `Plotly` • `Google API`")
             st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
 
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("📊 NIP Data Tracking & Automation")
         st.write("Engineered comprehensive Google Sheet trackers to monitor, evaluate, and manage National Immunization Program (NIP) activities, streamlining data collection for vital public health initiatives.")
@@ -348,7 +348,7 @@ elif page == "🛸 Mission Logs (Projects)":
             </div>
             """, unsafe_allow_html=True)
 
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("🎨 Visual Design & Cartography")
         st.write("Conceptualized and designed high-impact visual assets and maps for critical public health initiatives and disaster risk reduction programs.")
@@ -377,7 +377,7 @@ elif page == "🛸 Mission Logs (Projects)":
             </div>
             """, unsafe_allow_html=True)
 
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("🎬 Video Production & Content Creation")
         st.write("Editing, directing, and producing highly engaging multimedia content tailored for varying social media algorithms and audiences.")
@@ -412,7 +412,7 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
     st.write("A timeline of my professional experience, showcasing my background in data management, financial operations, and public health tracking.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.markdown('<h2 class="job-title">Data Controller III</h2>', unsafe_allow_html=True)
         st.markdown('**Department of Health (DOH) CHD CAR - Provincial DOH Office Abra**')
@@ -424,7 +424,7 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
         * **Public Health Support:** Prepared data reports, generated vaccination certificates, and supported quality management system (QMS) implementation.
         """)
 
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.markdown('<h2 class="job-title">Junior Microfinance Officer</h2>', unsafe_allow_html=True)
         st.markdown('**ASA Philippines Foundation, Inc.**')
@@ -435,7 +435,7 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
         * **Award Recognition:** Honored with multiple internal awards including *Employee of the Month*, *Best in Loan Portfolio*, and *Best in Recruitment* for consistently exceeding performance metrics.
         """)
         
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.markdown('<h2 class="job-title">Stock Clerk</h2>', unsafe_allow_html=True)
         st.markdown('**SM Supermarket Baguio**')
@@ -445,7 +445,7 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
         * **Operations Support:** Maintained hazard-free environments, shelved new merchandise according to standards, and actively assisted customers on the floor.
         """)
 
-    with st.container():
+    with st.container(border=True):
         st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("🎓 Academic Training")
         st.markdown("**Bachelor of Science in Information Technology**")
