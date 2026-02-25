@@ -236,7 +236,7 @@ if page == "🏠 Basecamp (Home)":
             # PURE HTML/CSS RADAR BEAM (Restored to 310px diameter, pushed down to 35px)
             st.markdown("""
             <div style="position: relative; width: 100%; height: 0px; display: flex; justify-content: center; z-index: 0;">
-                <div style="position: absolute; top: 35px; width: 310px; height: 310px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%); animation: radar-spin 4s infinite linear; pointer-events: none;"></div>
+                <div style="position: absolute; top: 30px; width: 310px; height: 310px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%); animation: radar-spin 4s infinite linear; pointer-events: none;"></div>
             </div>
             """, unsafe_allow_html=True)
             
