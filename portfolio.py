@@ -110,29 +110,36 @@ st.markdown("""
         padding: 20px !important;
     }
     
-    /* PERFECTLY CENTERED RADAR BEAM */
-    [data-testid="stPlotlyChart"] {
+    /* RADAR BEAM ANIMATION - GLITCH-FREE FIX */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-bg) {
         position: relative;
-        z-index: 1;
-    }
-    [data-testid="stPlotlyChart"]::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 250px; /* Matches the size of the inner radar web */
-        height: 250px;
-        background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.5) 100%);
-        border-radius: 50%;
-        /* The translate exactly centers it, and it stays centered while rotating */
-        animation: radar-spin 4s infinite linear;
-        pointer-events: none;
-        z-index: -1; 
+        overflow: hidden; /* Keeps the beam inside the glass card */
     }
     
-    @keyframes radar-spin {
-        from { transform: translate(-50%, -50%) rotate(0deg); }
-        to { transform: translate(-50%, -50%) rotate(360deg); }
+    /* Elevates the text and chart so the beam slides under them */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-bg) > * {
+        position: relative;
+        z-index: 2; 
+    }
+    
+    .radar-bg {
+        position: absolute !important;
+        top: 245px !important; /* Precisely aligns with the vertical center of the chart */
+        left: 50% !important;
+        width: 300px !important; /* Matches the outer circle of your web */
+        height: 300px !important;
+        margin-top: -150px !important; /* Perfect margin centering replaces glitchy transform centering */
+        margin-left: -150px !important;
+        background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%) !important;
+        border-radius: 50% !important;
+        animation: stable-spin 4s infinite linear !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+    }
+    
+    @keyframes stable-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
     
     h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
@@ -243,8 +250,9 @@ if page == "🏠 Basecamp (Home)":
     c1, c2 = st.columns([1, 1])
     with c1:
         with st.container(border=True):
+            # THE INDEPENDENT BACKGROUND BEAM
+            st.markdown('<div class="radar-bg"></div>', unsafe_allow_html=True)
             st.subheader("📊 Skill Universe")
-            # Removed the extra div completely. Radar beam is now safely inside the CSS.
             st.plotly_chart(fig, use_container_width=True)
 
     with c2:
