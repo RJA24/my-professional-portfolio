@@ -2,51 +2,40 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
-# 1. Create dummy data for your 'Skill Universe'
+# MUST BE FIRST
+st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="🚀")
+
+# --- DATA FOR RADAR CHART ---
 df = pd.DataFrame(dict(
     r=[90, 85, 70, 80, 75],
     theta=['Python','Pandas','SQL','Plotly','ETL']))
 
 fig = px.line_polar(df, r='r', theta='theta', line_close=True)
-fig.update_traces(fill='toself', line_color='#4cc9f0')
+fig.update_traces(fill='toself', line_color='#4cc9f0', fillcolor='rgba(76, 201, 240, 0.3)')
 fig.update_layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)',
     font_color="white",
-    margin=dict(l=20, r=20, t=20, b=20),
-    height=300
+    polar=dict(bgcolor='rgba(0,0,0,0)', radialaxis=dict(visible=False)),
+    margin=dict(l=40, r=40, t=20, b=20),
+    height=350
 )
 
-# 2. To display it, add this inside a new 'glass-card' or column:
-# st.plotly_chart(fig, use_container_width=True)
-st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="🚀")
-
-# --- CONSOLIDATED COSMIC CSS ---
+# --- COSMIC CSS ---
 st.markdown("""
     <style>
-    /* Background Gradient */
     [data-testid="stAppViewContainer"] {
         background: linear-gradient(180deg, #0D0221 0%, #16213e 50%, #0f3460 100%);
         background-attachment: fixed;
         color: #ffffff;
     }
-
-    /* Sidebar Styling */
-    [data-testid="stSidebar"] {
-        background-color: rgba(26, 26, 46, 0.8);
-    }
-
-    /* Floating Animation for Profile Pic */
+    [data-testid="stSidebar"] { background-color: rgba(26, 26, 46, 0.8); }
     @keyframes float {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-15px); }
         100% { transform: translateY(0px); }
     }
-    .floating-img {
-        animation: float 4s ease-in-out infinite;
-    }
-
-    /* Glassmorphism Cards */
+    .floating-img { animation: float 4s ease-in-out infinite; }
     .glass-card {
         background: rgba(255, 255, 255, 0.07);
         backdrop-filter: blur(15px);
@@ -55,27 +44,14 @@ st.markdown("""
         padding: 25px;
         margin-bottom: 20px;
     }
-
-    /* Glow Effects */
-    h1, h2, h3 {
-        color: #4cc9f0 !important;
-        text-shadow: 0 0 15px rgba(76, 201, 240, 0.6);
-    }
-    
-    .stButton>button {
-        background: linear-gradient(45deg, #7209b7, #3f37c9);
-        color: white;
-        border: none;
-        border-radius: 50px;
-        padding: 10px 25px;
-    }
-
+    h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
+    .stButton>button { background: linear-gradient(45deg, #7209b7, #3f37c9); color: white; border-radius: 50px; }
     [data-testid="stHeader"] { background: rgba(0,0,0,0); }
     footer { visibility: hidden; }
     </style>
     """, unsafe_allow_html=True)
 
-# --- SIDEBAR NAVIGATION ---
+# --- SIDEBAR ---
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/2026/2026462.png", width=80)
     st.markdown("### 📡 Mission Control")
@@ -86,9 +62,8 @@ with st.sidebar:
 
 # --- HERO SECTION ---
 col1, col2 = st.columns([1, 2])
-
 with col1:
-    st.markdown("""
+    st.markdown(f"""
         <div style="display: flex; justify-content: center;">
             <img src="https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1).png?raw=true" 
             class="floating-img"
@@ -105,17 +80,23 @@ with col2:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# --- FEATURED PROJECT ---
-st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-c1, c2 = st.columns([2, 1])
+# --- SKILL UNIVERSE & PROJECT ---
+c1, c2 = st.columns([1, 1])
+
 with c1:
-    st.header("🛸 Project: Abra SBI Dashboard")
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.subheader("📊 Skill Universe")
+    st.plotly_chart(fig, use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with c2:
+    st.markdown('<div class="glass-card" style="height: 425px;">', unsafe_allow_html=True)
+    st.header("🛸 Project: Abra SBI")
     st.write("A real-time geospatial monitoring system built to track provincial vaccination coverage.")
     st.markdown("**Core Engines:** `Python` • `Streamlit` • `Plotly` • `Google API`")
-with c2:
-    st.write("<br>", unsafe_allow_html=True)
+    st.write("<br><br>", unsafe_allow_html=True)
     st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
-st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # --- CONTACT SECTION ---
 st.header("📬 Contact the Bridge")
