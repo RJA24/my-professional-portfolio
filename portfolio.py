@@ -66,7 +66,6 @@ st.markdown("""
     [data-testid="stHeader"] { background: rgba(0,0,0,0); }
     footer { visibility: hidden; }
     
-    /* Custom Styling for the Radio Navigation */
     div[role="radiogroup"] > label {
         background: rgba(255, 255, 255, 0.05);
         padding: 10px 15px;
@@ -79,7 +78,6 @@ st.markdown("""
         background: rgba(76, 201, 240, 0.2);
     }
     
-    /* Custom list styling for projects */
     .project-list {
         line-height: 1.8;
         font-size: 1.05rem;
@@ -121,7 +119,6 @@ if page == "🏠 Basecamp (Home)":
         st.title("Ron Jay C. Ayup")
         st.subheader("🌌 Tech-Forward Virtual Assistant & Data Analyst")
         
-        # --- NEW "ABOUT ME" SECTION ---
         st.markdown("""
         **Mission Overview:** I am a highly adaptable professional bridging the gap between complex data and compelling digital media. With a solid foundation in health data management, I specialize in transforming raw numbers into actionable insights and engaging content. Whether I'm orchestrating AI-assisted Python scripts, designing high-impact visual campaigns in Canva, or editing dynamic video content across platforms, I bring a unique, multi-disciplinary approach to problem-solving. I'm actively seeking Virtual Assistant roles where I can leverage my blend of analytical precision and creative storytelling to help teams operate at warp speed.
         """)
@@ -130,6 +127,21 @@ if page == "🏠 Basecamp (Home)":
         st.download_button("Download Mission Log (Resume)", data=dummy_resume, file_name="Ron_Jay_Resume.pdf", mime="application/pdf")
 
     st.markdown("<br>", unsafe_allow_html=True)
+    
+    # --- NEW: CORE VA SERVICES SECTION ---
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.header("🛠️ Core VA Services")
+    s1, s2, s3 = st.columns(3)
+    with s1:
+        st.markdown("### 📊 Data & Dashboards")
+        st.write("Google Sheets automation, real-time data tracking (like NIP workflows), and transforming raw data into clear, interactive Streamlit/Plotly dashboards.")
+    with s2:
+        st.markdown("### 🎬 Multimedia Magic")
+        st.write("End-to-end video editing using Premiere Pro and CapCut for YouTube, TikTok, and Reels, plus eye-catching graphic design via Canva.")
+    with s3:
+        st.markdown("### 🤖 AI-Powered Support")
+        st.write("Leveraging AI tools to vibe-code custom solutions, streamline repetitive tasks, and bring tech-forward efficiency to daily administrative operations.")
+    st.markdown('</div>', unsafe_allow_html=True)
 
     c1, c2 = st.columns([1, 1])
     with c1:
