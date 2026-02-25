@@ -275,7 +275,7 @@ elif page == "🛸 Mission Logs (Projects)":
             st.header("Abra SBI Dashboard")
             st.write("A real-time geospatial monitoring system built to track provincial vaccination coverage, synthesizing complex data for rapid decision making.")
             st.markdown("**Core Engines:** `Python` • `Streamlit` • `Plotly` • `Google API`")
-            st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
+            st.link_button("Launch Dashboard 🚀", "https://abra-sbi-dashboard-5uubqi6rcsqdknxudevhrv.streamlit.app/")
 
     with st.container(border=True):
         st.header("📊 NIP Data Tracking & Automation")
