@@ -8,17 +8,50 @@ st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide"
 # --- DATA & ASSETS ---
 df = pd.DataFrame(dict(
     r=[90, 85, 80, 75, 85],
-    theta=['Python (AI-Assisted)','Data Tracking','Video Editing','Canva Design','NIP Automation']))
+    theta=['Python (AI-Assisted)','Data Tracking','Video Editing','Canva Design','NIP Automation'],
+    Details=[
+        'Building Streamlit apps & automating workflows via AI',
+        'Real-time dashboards & advanced Google Sheets auditing',
+        'Premiere Pro & CapCut for YouTube, TikTok, & Reels',
+        'High-impact visual assets, mapping, & event collateral',
+        'Streamlining public health reporting & data systems'
+    ]
+))
 
-fig = px.line_polar(df, r='r', theta='theta', line_close=True)
-fig.update_traces(fill='toself', line_color='#4cc9f0', fillcolor='rgba(76, 201, 240, 0.3)')
+fig = px.line_polar(
+    df, 
+    r='r', 
+    theta='theta', 
+    line_close=True,
+    hover_data={'r': False, 'theta': False, 'Details': True}
+)
+
+fig.update_traces(
+    fill='toself', 
+    line_color='#4cc9f0', 
+    fillcolor='rgba(76, 201, 240, 0.3)',
+    mode='lines+markers', 
+    marker=dict(size=10, color='#BC13FE', line=dict(color='white', width=2)),
+    hovertemplate='<b>%{theta}</b><br><br>%{customdata[0]}<extra></extra>'
+)
+
 fig.update_layout(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)',
     font_color="white",
-    polar=dict(bgcolor='rgba(0,0,0,0)', radialaxis=dict(visible=False)),
+    polar=dict(
+        bgcolor='rgba(0,0,0,0)', 
+        radialaxis=dict(visible=False),
+        angularaxis=dict(linewidth=1, linecolor='rgba(255,255,255,0.2)')
+    ),
     margin=dict(l=40, r=40, t=20, b=20),
-    height=350
+    height=350,
+    hoverlabel=dict(
+        bgcolor="#16213e",
+        font_size=14,
+        font_family="sans-serif",
+        bordercolor="#BC13FE"
+    )
 )
 
 # --- RESUME SETUP ---
