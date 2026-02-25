@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Space Portfolio | Jay", layout="wide", page_icon="🚀")
+st.set_page_config(page_title="Space Portfolio | Ron Jay", layout="wide", page_icon="🚀")
 
 # --- UPDATED FIGMA-STYLE CSS ---
 st.markdown("""
@@ -53,12 +53,12 @@ st.markdown("""
 st.markdown('<div class="hero-container">', unsafe_allow_html=True)
 st.markdown('<p class="message-from-earth">A MESSAGE FROM EARTH</p>', unsafe_allow_html=True)
 st.markdown('<h1 class="main-title">HELLO FELLOW GALAXY MEMBER</h1>', unsafe_allow_html=True)
-st.markdown('<h2 style="color: #ffffff; letter-spacing: 8px;">I AM JAY</h2>', unsafe_allow_html=True)
+st.markdown('<h2 style="color: #ffffff; letter-spacing: 8px;">I AM RON JAY</h2>', unsafe_allow_html=True)
 
 # THE ASTRONAUT (Add your image link here)
 st.markdown("""
     <div style="display: flex; justify-content: center;">
-        <img src="https://i.ibb.co/vz6mXmP/astronaut-laptop.png" class="floating-astro">
+        <img src="https://github.com/RJA24/my-professional-portfolio/blob/main/dohis%201%20(1).png?raw=true">
     </div>
     """, unsafe_allow_html=True)
 
