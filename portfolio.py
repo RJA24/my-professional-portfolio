@@ -44,12 +44,11 @@ st.markdown("""
         50% { transform: translateY(-15px); }
         100% { transform: translateY(0px); }
     }
-    .floating-img { animation: float 4s ease-in-out infinite; }
+    .floating-img { animation: float float 4s ease-in-out infinite; }
     
-    /* NEW: Typing Animation CSS */
     .typing-text {
         overflow: hidden;
-        border-right: 3px solid #BC13FE; /* Neon purple cursor */
+        border-right: 3px solid #BC13FE;
         white-space: nowrap;
         animation: typing 3.5s steps(45, end) forwards, blink 0.8s step-end infinite;
         font-size: 1.7rem;
@@ -112,6 +111,17 @@ st.markdown("""
         line-height: 1.8;
         font-size: 1.05rem;
     }
+    
+    .job-title {
+        color: #BC13FE !important;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    .job-date {
+        color: #a9d6e5;
+        font-style: italic;
+        margin-bottom: 15px;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -120,7 +130,7 @@ with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/2026/2026462.png", width=80)
     st.markdown("### 📡 Mission Control")
     
-    page = st.radio("Select Sector:", ["🏠 Basecamp (Home)", "🛸 Mission Logs (Projects)"])
+    page = st.radio("Select Sector:", ["🏠 Basecamp (Home)", "🛸 Mission Logs (Projects)", "🧑‍🚀 Tour of Duty (Experience)"])
     
     st.markdown("---")
     st.markdown("### 🔗 Comm Links")
@@ -148,7 +158,6 @@ if page == "🏠 Basecamp (Home)":
         st.markdown('<p style="color:#BC13FE; letter-spacing:3px; font-weight:bold; margin-bottom:0px;">A MESSAGE FROM EARTH</p>', unsafe_allow_html=True)
         st.title("Ron Jay C. Ayup")
         
-        # NEW: The animated typing text replaces the standard subheader
         st.markdown('<div class="typing-text">🌌 Tech-Forward Virtual Assistant & Data Analyst</div>', unsafe_allow_html=True)
         
         st.markdown("""
@@ -156,12 +165,10 @@ if page == "🏠 Basecamp (Home)":
         """)
         
         st.markdown("<br>", unsafe_allow_html=True)
-        # --- THE UPDATED DOWNLOAD BUTTON ---
         st.download_button("Download Mission Log (Resume)", data=resume_bytes, file_name="Ron_Jay_Ayup_Resume.pdf", mime="application/pdf")
 
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # --- CORE VA SERVICES SECTION ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.header("🛠️ Core VA Services")
     s1, s2, s3 = st.columns(3)
@@ -187,7 +194,6 @@ if page == "🏠 Basecamp (Home)":
         st.markdown('<div class="glass-card" style="height: 100%;">', unsafe_allow_html=True)
         st.subheader("📬 Contact the Bridge")
         
-        # --- NEW WORKING CONTACT FORM WITH REDIRECT & AUTORESPONSE ---
         contact_form = """
         <form action="https://formsubmit.co/ronjay.1204@gmail.com" method="POST">
              <input type="hidden" name="_captcha" value="false">
@@ -200,7 +206,6 @@ if page == "🏠 Basecamp (Home)":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
-        
         st.markdown('</div>', unsafe_allow_html=True)
 
 # ==========================================
@@ -211,7 +216,6 @@ elif page == "🛸 Mission Logs (Projects)":
     st.write("A detailed archive of my data monitoring systems, visual design layouts, public health tracking architecture, and video content.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # --- Project 1: Abra SBI ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     p1_col1, p1_col2 = st.columns([1, 2])
     with p1_col1:
@@ -223,7 +227,6 @@ elif page == "🛸 Mission Logs (Projects)":
         st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # --- Project 2: Google Sheets NIP Trackers ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.header("📊 NIP Data Tracking & Automation")
     st.write("Engineered comprehensive Google Sheet trackers to monitor, evaluate, and manage National Immunization Program (NIP) activities, streamlining data collection for vital public health initiatives.")
@@ -240,7 +243,6 @@ elif page == "🛸 Mission Logs (Projects)":
         • MR Supplemental Immunization Activity (2023 & 2024)
         </div>
         """, unsafe_allow_html=True)
-
     with nip_c2:
         st.markdown("### 📋 Logistics & Outbreak Response")
         st.markdown("""
@@ -253,7 +255,6 @@ elif page == "🛸 Mission Logs (Projects)":
         """, unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # --- Project 3: Canva Visuals & Cartography ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.header("🎨 Visual Design & Cartography")
     st.write("Conceptualized and designed high-impact visual assets and maps for critical public health initiatives and disaster risk reduction programs.")
@@ -271,7 +272,6 @@ elif page == "🛸 Mission Logs (Projects)":
         • National Oral Health Month 2026 Tarpaulin
         </div>
         """, unsafe_allow_html=True)
-
     with canva_c2:
         st.markdown("### 🚨 DRRM-H & Mapping")
         st.markdown("""
@@ -284,7 +284,6 @@ elif page == "🛸 Mission Logs (Projects)":
         """, unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # --- Project 4: Video Content Creation ---
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.header("🎬 Video Production & Content Creation")
     st.write("Editing, directing, and producing highly engaging multimedia content tailored for varying social media algorithms and audiences.")
@@ -301,7 +300,6 @@ elif page == "🛸 Mission Logs (Projects)":
         • Facebook Reels & Long-form Video
         </div>
         """, unsafe_allow_html=True)
-
     with vid_c2:
         st.markdown("### ✂️ Editorial Toolkit")
         st.markdown("""
@@ -311,4 +309,56 @@ elif page == "🛸 Mission Logs (Projects)":
         • Multi-platform Format Optimization
         </div>
         """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# ==========================================
+# PAGE 3: EXPERIENCE (TOUR OF DUTY)
+# ==========================================
+elif page == "🧑‍🚀 Tour of Duty (Experience)":
+    st.title("🧑‍🚀 Tour of Duty & Career Orbit")
+    st.write("A timeline of my professional experience, showcasing my background in data management, financial operations, and public health tracking.")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # --- DOH Role ---
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.markdown('<h2 class="job-title">Data Controller III</h2>', unsafe_allow_html=True)
+    st.markdown('**Department of Health (DOH) CHD CAR - Provincial DOH Office Abra**')
+    st.markdown('<div class="job-date">2021 – Present</div>', unsafe_allow_html=True)
+    st.markdown("""
+    * **Data Systems:** Managed and analyzed vaccination-related data for Covid-19, supplementary, and routine immunization programs.
+    * **Performance Benchmark:** Consistently ranked as the first to report vaccination data to the Regional Office out of six provinces and one city, setting the standard for timely submissions.
+    * **Data Integrity:** Conducted regular audits to verify data accuracy, provided expert technical support to data managers, and ensured strict compliance with data privacy regulations.
+    * **Public Health Support:** Prepared data reports, generated vaccination certificates, and supported quality management system (QMS) implementation.
+    """)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # --- ASA Philippines Role ---
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.markdown('<h2 class="job-title">Junior Microfinance Officer</h2>', unsafe_allow_html=True)
+    st.markdown('**ASA Philippines Foundation, Inc.**')
+    st.markdown('<div class="job-date">2018 – 2021</div>', unsafe_allow_html=True)
+    st.markdown("""
+    * **Financial Operations:** Oversaw the full accounting cycle, from initial data collection and document preparation to report generation and closing financial records.
+    * **Client Management:** Delivered exceptional customer service by processing loan applications efficiently and communicating terms clearly to applicants.
+    * **Award Recognition:** Honored with multiple internal awards including *Employee of the Month*, *Best in Loan Portfolio*, and *Best in Recruitment* for consistently exceeding performance metrics.
+    """)
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # --- SM Supermarket Role ---
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.markdown('<h2 class="job-title">Stock Clerk</h2>', unsafe_allow_html=True)
+    st.markdown('**SM Supermarket Baguio**')
+    st.markdown('<div class="job-date">2018</div>', unsafe_allow_html=True)
+    st.markdown("""
+    * **Logistics & Inventory:** Efficiently managed inventory storage ensuring accurate tracking, easy access, and proper stock rotation.
+    * **Operations Support:** Maintained hazard-free environments, shelved new merchandise according to standards, and actively assisted customers on the floor.
+    """)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # --- Education ---
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.header("🎓 Academic Training")
+    st.markdown("**Bachelor of Science in Information Technology**")
+    st.markdown("Divine Word College of Bangued | *2014 – 2018*")
+    st.write("Graduated with a solid foundation in IT concepts, systems analysis, programming, database management, and network security.")
     st.markdown('</div>', unsafe_allow_html=True)
