@@ -24,18 +24,25 @@ fig.update_layout(
 # --- COSMIC CSS ---
 st.markdown("""
     <style>
+    /* Background Gradient + Twinkling Stars */
     [data-testid="stAppViewContainer"] {
         background: linear-gradient(180deg, #0D0221 0%, #16213e 50%, #0f3460 100%);
         background-attachment: fixed;
         color: #ffffff;
     }
+    
+    /* Sidebar Styling */
     [data-testid="stSidebar"] { background-color: rgba(26, 26, 46, 0.8); }
+
+    /* Floating Animation for Profile Pic */
     @keyframes float {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-15px); }
         100% { transform: translateY(0px); }
     }
     .floating-img { animation: float 4s ease-in-out infinite; }
+
+    /* Glassmorphism Cards */
     .glass-card {
         background: rgba(255, 255, 255, 0.07);
         backdrop-filter: blur(15px);
@@ -44,8 +51,23 @@ st.markdown("""
         padding: 25px;
         margin-bottom: 20px;
     }
+
+    /* Glow Effects */
     h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
-    .stButton>button { background: linear-gradient(45deg, #7209b7, #3f37c9); color: white; border-radius: 50px; }
+    
+    .stButton>button { 
+        background: linear-gradient(45deg, #7209b7, #3f37c9); 
+        color: white; 
+        border-radius: 50px; 
+        border: none;
+        padding: 10px 20px;
+    }
+    
+    .stButton>button:hover {
+        box-shadow: 0 0 20px rgba(114, 9, 183, 0.7);
+        color: white;
+    }
+
     [data-testid="stHeader"] { background: rgba(0,0,0,0); }
     footer { visibility: hidden; }
     </style>
