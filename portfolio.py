@@ -101,67 +101,45 @@ st.markdown("""
         50% { border-color: #BC13FE; }
     }
     
-    /* 1. Hide the invisible layout markers */
-    span[class$="-marker"] {
-        display: none !important;
-    }
-    
-    /* 2. Target the isolated container wrappers */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(span[class$="-marker"]) {
-        border: none !important; /* Destroys the ugly native outline */
-        background: rgba(0, 0, 0, 0.5) !important; /* Perfect dark glass */
+    /* UNIVERSAL DARK GLASS EFFECT FOR ALL CONTAINERS */
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+        background: rgba(0, 0, 0, 0.4) !important;
         backdrop-filter: blur(10px) !important;
-        border-radius: 20px !important;
-    }
-    
-    /* 3. Standard Glass Card specific border */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.glass-card-marker) {
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 20px !important;
+        padding: 20px !important;
     }
     
-    /* 4. Radar Scanner specific styling */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker) {
+    /* RADAR BEAM ANIMATION - Bulletproof Implementation */
+    .radar-beam-container {
         position: relative;
-        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 0px; /* Takes no space so it sits behind chart */
     }
-    
-    /* The background purple beam */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker)::before {
-        content: '';
+    .radar-beam {
         position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: conic-gradient(transparent 70%, rgba(188, 19, 254, 0.8) 100%);
+        width: 350px;
+        height: 350px;
+        top: 175px; /* Pushes it down behind the chart */
+        background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.5) 100%);
+        border-radius: 50%;
         animation: radar-spin 4s infinite linear;
         pointer-events: none;
         z-index: 0;
     }
     
-    /* The dark mask that creates the glowing border effect */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker)::after {
-        content: '';
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        right: 2px;
-        bottom: 2px;
-        background: #0D0221;
-        border-radius: 19px;
-        pointer-events: none;
-        z-index: 1;
-    }
-    
-    /* Brings the text and chart above the background */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker) > div {
+    /* AUTO-SPIN CHART WITH HOVER PAUSE */
+    [data-testid="stPlotlyChart"] {
         position: relative;
-        z-index: 2;
+        z-index: 1;
+        animation: slow-spin 25s infinite linear;
+        border-radius: 50%;
     }
-    
-    /* 5. NEW: Spins the actual Plotly Chart */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker) .stPlotlyChart {
-        animation: slow-spin 20s infinite linear;
+    [data-testid="stPlotlyChart"]:hover {
+        animation-play-state: paused;
     }
     
     @keyframes radar-spin {
@@ -267,7 +245,6 @@ if page == "🏠 Basecamp (Home)":
     st.markdown("<br>", unsafe_allow_html=True)
     
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("🛠️ Core VA Services")
         s1, s2, s3 = st.columns(3)
         with s1:
@@ -283,13 +260,15 @@ if page == "🏠 Basecamp (Home)":
     c1, c2 = st.columns([1, 1])
     with c1:
         with st.container(border=True):
-            st.markdown('<span class="radar-card-marker"></span>', unsafe_allow_html=True)
             st.subheader("📊 Skill Universe")
+            
+            # THE BULLETPROOF RADAR BEAM (Sits directly behind the chart)
+            st.markdown('<div class="radar-beam-container"><div class="radar-beam"></div></div>', unsafe_allow_html=True)
+            
             st.plotly_chart(fig, use_container_width=True)
 
     with c2:
         with st.container(border=True):
-            st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
             st.subheader("📬 Contact the Bridge")
             
             contact_form = """
@@ -314,7 +293,6 @@ elif page == "🛸 Mission Logs (Projects)":
     st.markdown("<br>", unsafe_allow_html=True)
     
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         p1_col1, p1_col2 = st.columns([1, 2])
         with p1_col1:
             st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", use_container_width=True)
@@ -325,7 +303,6 @@ elif page == "🛸 Mission Logs (Projects)":
             st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
 
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("📊 NIP Data Tracking & Automation")
         st.write("Engineered comprehensive Google Sheet trackers to monitor, evaluate, and manage National Immunization Program (NIP) activities, streamlining data collection for vital public health initiatives.")
         st.markdown("**Core Engines:** `Google Sheets` • `Data Management` • `NIP Tracking` • `Data Validation`")
@@ -353,7 +330,6 @@ elif page == "🛸 Mission Logs (Projects)":
             """, unsafe_allow_html=True)
 
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("🎨 Visual Design & Cartography")
         st.write("Conceptualized and designed high-impact visual assets and maps for critical public health initiatives and disaster risk reduction programs.")
         st.markdown("**Core Engines:** `Canva` • `Graphic Design` • `Cartography`")
@@ -382,7 +358,6 @@ elif page == "🛸 Mission Logs (Projects)":
             """, unsafe_allow_html=True)
 
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("🎬 Video Production & Content Creation")
         st.write("Editing, directing, and producing highly engaging multimedia content tailored for varying social media algorithms and audiences.")
         st.markdown("**Core Engines:** `Premiere Pro` • `CapCut` • `After Effects` • `Filmora` • `PowerDirector`")
@@ -417,7 +392,6 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
     st.markdown("<br>", unsafe_allow_html=True)
     
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.markdown('<h2 class="job-title">Data Controller III</h2>', unsafe_allow_html=True)
         st.markdown('**Department of Health (DOH) CHD CAR - Provincial DOH Office Abra**')
         st.markdown('<div class="job-date">2021 – Present</div>', unsafe_allow_html=True)
@@ -429,7 +403,6 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
         """)
 
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.markdown('<h2 class="job-title">Junior Microfinance Officer</h2>', unsafe_allow_html=True)
         st.markdown('**ASA Philippines Foundation, Inc.**')
         st.markdown('<div class="job-date">2018 – 2021</div>', unsafe_allow_html=True)
@@ -440,7 +413,6 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
         """)
         
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.markdown('<h2 class="job-title">Stock Clerk</h2>', unsafe_allow_html=True)
         st.markdown('**SM Supermarket Baguio**')
         st.markdown('<div class="job-date">2018</div>', unsafe_allow_html=True)
@@ -450,7 +422,6 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
         """)
 
     with st.container(border=True):
-        st.markdown('<span class="glass-card-marker"></span>', unsafe_allow_html=True)
         st.header("🎓 Academic Training")
         st.markdown("**Bachelor of Science in Information Technology**")
         st.markdown("Divine Word College of Bangued | *2014 – 2018*")
