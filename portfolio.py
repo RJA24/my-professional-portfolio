@@ -7,8 +7,8 @@ st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide"
 
 # --- DATA & ASSETS ---
 df = pd.DataFrame(dict(
-    r=[90, 85, 70, 80, 75],
-    theta=['Python','Pandas','SQL','Plotly','ETL']))
+    r=[90, 85, 80, 75, 85],
+    theta=['Python (AI-Assisted)','Data Tracking','Video Editing','Canva Design','NIP Automation']))
 
 fig = px.line_polar(df, r='r', theta='theta', line_close=True)
 fig.update_traces(fill='toself', line_color='#4cc9f0', fillcolor='rgba(76, 201, 240, 0.3)')
@@ -95,9 +95,12 @@ with st.sidebar:
     page = st.radio("Select Sector:", ["🏠 Basecamp (Home)", "🛸 Mission Logs (Projects)"])
     
     st.markdown("---")
+    st.markdown("### 🔗 Comm Links")
     st.markdown("📫 [Email](mailto:rj.ayup24@gmail.com)")
     st.markdown("🐙 [GitHub](https://github.com/RJA24)")
     st.markdown("💼 [LinkedIn](https://linkedin.com/)")
+    st.markdown("▶️ [YouTube](#)")
+    st.markdown("🎵 [TikTok](#)")
 
 # ==========================================
 # PAGE 1: HOME (BASECAMP)
@@ -116,8 +119,8 @@ if page == "🏠 Basecamp (Home)":
     with col2:
         st.markdown('<p style="color:#BC13FE; letter-spacing:3px; font-weight:bold; margin-bottom:0px;">A MESSAGE FROM EARTH</p>', unsafe_allow_html=True)
         st.title("Ron Jay C. Ayup")
-        st.subheader("🌌 Data Analyst & Cosmic Problem Solver")
-        st.write("Turning vast 'data galaxies' into actionable insights with Python and a touch of stardust.")
+        st.subheader("🌌 Tech-Forward Virtual Assistant & Data Analyst")
+        st.write("Leveraging AI, data automation, and creative video editing to build powerful tools and engaging digital content.")
         st.download_button("Download Mission Log (Resume)", data=dummy_resume, file_name="Ron_Jay_Resume.pdf", mime="application/pdf")
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -145,7 +148,7 @@ if page == "🏠 Basecamp (Home)":
 # ==========================================
 elif page == "🛸 Mission Logs (Projects)":
     st.title("🛸 Mission Logs & Deep Space Projects")
-    st.write("A detailed archive of my data monitoring systems, visual design layouts, and public health tracking architecture.")
+    st.write("A detailed archive of my data monitoring systems, visual design layouts, public health tracking architecture, and video content.")
     st.markdown("<br>", unsafe_allow_html=True)
     
     # --- Project 1: Abra SBI ---
@@ -217,6 +220,35 @@ elif page == "🛸 Mission Logs (Projects)":
         • Pre-planning of the 2026-2028 DRRM-H Plan Tarpaulin <br>
         • Finalization of the 2026-2028 DRRM-H Plan Tarpaulin <br>
         • High Resolution Health Facility Map of Abra
+        </div>
+        """, unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # --- Project 4: Video Content Creation ---
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.header("🎬 Video Production & Content Creation")
+    st.write("Editing, directing, and producing highly engaging multimedia content tailored for varying social media algorithms and audiences.")
+    st.markdown("**Core Engines:** `Premiere Pro` • `CapCut` • `After Effects` • `Filmora` • `PowerDirector`")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    vid_c1, vid_c2 = st.columns(2)
+    with vid_c1:
+        st.markdown("### 📱 Distribution Platforms")
+        st.markdown("""
+        <div class="project-list">
+        • YouTube Content <br>
+        • TikTok Shorts <br>
+        • Facebook Reels & Long-form Video
+        </div>
+        """, unsafe_allow_html=True)
+
+    with vid_c2:
+        st.markdown("### ✂️ Editorial Toolkit")
+        st.markdown("""
+        <div class="project-list">
+        • Advanced Timeline Editing & Transitions <br>
+        • Motion Graphics & Basic VFX <br>
+        • Multi-platform Format Optimization
         </div>
         """, unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
