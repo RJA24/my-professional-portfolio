@@ -101,37 +101,31 @@ st.markdown("""
         50% { border-color: #BC13FE; }
     }
     
-    /* Hide the invisible layout markers */
+    /* 1. Hide the invisible layout markers */
     span[class$="-marker"] {
         display: none !important;
     }
-    div.element-container:has(span[class$="-marker"]) {
-        display: none !important;
-    }
     
-    /* Standard Glass Card styling - Updated for Darker Theme */
-    div[data-testid="stVerticalBlockBorderWrapper"]:has(.glass-card-marker) {
-        background: rgba(0, 0, 0, 0.5) !important; /* Darker glass effect */
+    /* 2. Target the isolated container wrappers */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(span[class$="-marker"]) {
+        border: none !important; /* Destroys the ugly native outline */
+        background: rgba(0, 0, 0, 0.5) !important; /* Perfect dark glass */
         backdrop-filter: blur(10px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
         border-radius: 20px !important;
-        padding: 20px !important;
-        margin-bottom: 20px;
     }
     
-    /* Radar Scanner Card styling */
+    /* 3. Standard Glass Card specific border */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.glass-card-marker) {
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* 4. Radar Scanner specific styling */
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker) {
         position: relative;
         overflow: hidden;
-        border-radius: 20px !important;
-        padding: 20px !important;
-        background: rgba(0, 0, 0, 0.5) !important;
-        backdrop-filter: blur(10px) !important;
-        border: none !important; 
-        margin-bottom: 20px;
     }
     
-    /* The spinning purple beam */
+    /* The background purple beam */
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker)::before {
         content: '';
         position: absolute;
@@ -139,13 +133,13 @@ st.markdown("""
         left: -50%;
         width: 200%;
         height: 200%;
-        background: conic-gradient(transparent 70%, rgba(188, 19, 254, 0.9) 100%);
+        background: conic-gradient(transparent 70%, rgba(188, 19, 254, 0.8) 100%);
         animation: radar-spin 4s infinite linear;
         pointer-events: none;
         z-index: 0;
     }
     
-    /* The dark inner background that creates the thin glowing border effect */
+    /* The dark mask that creates the glowing border effect */
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker)::after {
         content: '';
         position: absolute;
@@ -153,19 +147,29 @@ st.markdown("""
         left: 2px;
         right: 2px;
         bottom: 2px;
-        background: #0D0221; /* Matches Deep Space Theme */
+        background: #0D0221;
         border-radius: 19px;
         pointer-events: none;
         z-index: 1;
     }
     
-    /* Ensure the chart sits above the background */
+    /* Brings the text and chart above the background */
     div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker) > div {
         position: relative;
         z-index: 2;
     }
     
+    /* 5. NEW: Spins the actual Plotly Chart */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-card-marker) .stPlotlyChart {
+        animation: slow-spin 20s infinite linear;
+    }
+    
     @keyframes radar-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    @keyframes slow-spin {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
