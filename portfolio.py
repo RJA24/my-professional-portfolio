@@ -55,7 +55,6 @@ fig.update_layout(
 )
 
 # --- RESUME SETUP ---
-# This block looks for "resume.pdf" in your GitHub repository
 try:
     with open("resume.pdf", "rb") as pdf_file:
         resume_bytes = pdf_file.read()
@@ -102,48 +101,65 @@ st.markdown("""
         50% { border-color: #BC13FE; }
     }
     
-    .glass-card {
-        background: rgba(255, 255, 255, 0.07);
+    /* NEW LAYOUT ENGINE: Hides the marker elements so they take up no space */
+    div.element-container:has(.glass-card-start),
+    div.element-container:has(.radar-start) {
+        display: none !important;
+    }
+    
+    /* Standard Glass Card styling via Streamlit Container */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.glass-card-start) {
+        background: rgba(255, 255, 255, 0.07) !important;
         backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
         border-radius: 20px;
-        padding: 25px;
+        padding: 25px !important;
         margin-bottom: 20px;
     }
     
-    /* NEW: Fixed Radar Scanner Animation */
-    .radar-container {
+    /* Radar Scanner Card styling via Streamlit Container */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-start) {
         position: relative;
         overflow: hidden;
         border-radius: 20px;
-        padding: 4px; /* Creates space for the beam to show */
-        background: rgba(255, 255, 255, 0.07);
+        padding: 25px !important;
+        background: rgba(255, 255, 255, 0.07) !important;
         backdrop-filter: blur(15px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: none !important; 
         margin-bottom: 20px;
         z-index: 1;
     }
-    .radar-container::before {
+    
+    /* The spinning purple beam */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-start)::before {
         content: '';
         position: absolute;
         top: -50%;
         left: -50%;
         width: 200%;
         height: 200%;
-        background: conic-gradient(transparent 70%, rgba(188, 19, 254, 0.7) 100%);
+        background: conic-gradient(transparent 70%, rgba(188, 19, 254, 0.8) 100%);
         animation: radar-spin 4s infinite linear;
         pointer-events: none;
         z-index: -1;
     }
+    
+    /* The dark inner background that creates the thin border effect */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(.radar-start)::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        background: #0D0221;
+        border-radius: 17px;
+        z-index: -1;
+    }
+    
     @keyframes radar-spin {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
-    }
-    .radar-inner {
-        background: #0D0221;
-        border-radius: 16px;
-        padding: 20px;
-        height: 100%;
     }
     
     h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
@@ -238,45 +254,44 @@ if page == "🏠 Basecamp (Home)":
 
     st.markdown("<br>", unsafe_allow_html=True)
     
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.header("🛠️ Core VA Services")
-    s1, s2, s3 = st.columns(3)
-    with s1:
-        st.markdown("### 📊 Data & Dashboards")
-        st.write("Google Sheets automation, real-time data tracking (like NIP workflows), and transforming raw data into clear, interactive Streamlit/Plotly dashboards.")
-    with s2:
-        st.markdown("### 🎬 Multimedia Magic")
-        st.write("End-to-end video editing using Premiere Pro and CapCut for YouTube, TikTok, and Reels, plus eye-catching graphic design via Canva.")
-    with s3:
-        st.markdown("### 🤖 AI-Powered Support")
-        st.write("Leveraging AI tools to vibe-code custom solutions, streamline repetitive tasks, and bring tech-forward efficiency to daily administrative operations.")
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        st.header("🛠️ Core VA Services")
+        s1, s2, s3 = st.columns(3)
+        with s1:
+            st.markdown("### 📊 Data & Dashboards")
+            st.write("Google Sheets automation, real-time data tracking (like NIP workflows), and transforming raw data into clear, interactive Streamlit/Plotly dashboards.")
+        with s2:
+            st.markdown("### 🎬 Multimedia Magic")
+            st.write("End-to-end video editing using Premiere Pro and CapCut for YouTube, TikTok, and Reels, plus eye-catching graphic design via Canva.")
+        with s3:
+            st.markdown("### 🤖 AI-Powered Support")
+            st.write("Leveraging AI tools to vibe-code custom solutions, streamline repetitive tasks, and bring tech-forward efficiency to daily administrative operations.")
 
     c1, c2 = st.columns([1, 1])
     with c1:
-        # NEW STRUCTURE: Applying the radar beam around the chart properly
-        st.markdown('<div class="radar-container"><div class="radar-inner">', unsafe_allow_html=True)
-        st.subheader("📊 Skill Universe")
-        st.plotly_chart(fig, use_container_width=True)
-        st.markdown('</div></div>', unsafe_allow_html=True)
+        with st.container(border=True):
+            st.markdown('<span class="radar-start"></span>', unsafe_allow_html=True)
+            st.subheader("📊 Skill Universe")
+            st.plotly_chart(fig, use_container_width=True)
 
     with c2:
-        st.markdown('<div class="glass-card" style="height: 100%;">', unsafe_allow_html=True)
-        st.subheader("📬 Contact the Bridge")
-        
-        contact_form = """
-        <form action="https://formsubmit.co/ronjay.1204@gmail.com" method="POST">
-             <input type="hidden" name="_captcha" value="false">
-             <input type="hidden" name="_next" value="https://my-professional-portfolio-fkegz9fuu9hgkdzjfbbshm.streamlit.app/">
-             <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I have received your message and will get back to you as soon as I can.">
-             <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background: rgba(255, 255, 255, 0.1); color: white;">
-             <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background: rgba(255, 255, 255, 0.1); color: white;">
-             <textarea name="message" placeholder="Your Message" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; height: 100px; background: rgba(255, 255, 255, 0.1); color: white;"></textarea>
-             <button type="submit" style="padding: 10px 20px; border-radius: 50px; background: linear-gradient(45deg, #7209b7, #3f37c9); color: white; border: none; cursor: pointer; width: 100%; transition: 0.3s ease;">Send Signal 🛸</button>
-        </form>
-        """
-        st.markdown(contact_form, unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        with st.container(border=True):
+            st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+            st.subheader("📬 Contact the Bridge")
+            
+            contact_form = """
+            <form action="https://formsubmit.co/ronjay.1204@gmail.com" method="POST">
+                 <input type="hidden" name="_captcha" value="false">
+                 <input type="hidden" name="_next" value="https://my-professional-portfolio-fkegz9fuu9hgkdzjfbbshm.streamlit.app/">
+                 <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I have received your message and will get back to you as soon as I can.">
+                 <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background: rgba(255, 255, 255, 0.1); color: white;">
+                 <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background: rgba(255, 255, 255, 0.1); color: white;">
+                 <textarea name="message" placeholder="Your Message" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; height: 100px; background: rgba(255, 255, 255, 0.1); color: white;"></textarea>
+                 <button type="submit" style="padding: 10px 20px; border-radius: 50px; background: linear-gradient(45deg, #7209b7, #3f37c9); color: white; border: none; cursor: pointer; width: 100%; transition: 0.3s ease;">Send Signal 🛸</button>
+            </form>
+            """
+            st.markdown(contact_form, unsafe_allow_html=True)
 
 # ==========================================
 # PAGE 2: PROJECTS (MISSION LOGS)
@@ -286,100 +301,100 @@ elif page == "🛸 Mission Logs (Projects)":
     st.write("A detailed archive of my data monitoring systems, visual design layouts, public health tracking architecture, and video content.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    p1_col1, p1_col2 = st.columns([1, 2])
-    with p1_col1:
-        st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", use_container_width=True)
-    with p1_col2:
-        st.header("Abra SBI Dashboard")
-        st.write("A real-time geospatial monitoring system built to track provincial vaccination coverage, synthesizing complex data for rapid decision making.")
-        st.markdown("**Core Engines:** `Python` • `Streamlit` • `Plotly` • `Google API`")
-        st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        p1_col1, p1_col2 = st.columns([1, 2])
+        with p1_col1:
+            st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", use_container_width=True)
+        with p1_col2:
+            st.header("Abra SBI Dashboard")
+            st.write("A real-time geospatial monitoring system built to track provincial vaccination coverage, synthesizing complex data for rapid decision making.")
+            st.markdown("**Core Engines:** `Python` • `Streamlit` • `Plotly` • `Google API`")
+            st.link_button("Launch Dashboard 🚀", "https://your-dashboard-link.streamlit.app/")
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.header("📊 NIP Data Tracking & Automation")
-    st.write("Engineered comprehensive Google Sheet trackers to monitor, evaluate, and manage National Immunization Program (NIP) activities, streamlining data collection for vital public health initiatives.")
-    st.markdown("**Core Engines:** `Google Sheets` • `Data Management` • `NIP Tracking` • `Data Validation`")
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    nip_c1, nip_c2 = st.columns(2)
-    with nip_c1:
-        st.markdown("### 💉 Immunization Campaigns")
-        st.markdown("""
-        <div class="project-list">
-        • School Based Immunization Tracker (2024 & 2025) <br>
-        • bOPV Supplemental Immunization Activity (2023 & 2024) <br>
-        • MR Supplemental Immunization Activity (2023 & 2024)
-        </div>
-        """, unsafe_allow_html=True)
-    with nip_c2:
-        st.markdown("### 📋 Logistics & Outbreak Response")
-        st.markdown("""
-        <div class="project-list">
-        • COVID-19 Vaccination Tracker <br>
-        • Flu Vaccination Tracker <br>
-        • Vaccine Physical Inventory Tracker <br>
-        • <i>And many more custom surveillance tools...</i>
-        </div>
-        """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        st.header("📊 NIP Data Tracking & Automation")
+        st.write("Engineered comprehensive Google Sheet trackers to monitor, evaluate, and manage National Immunization Program (NIP) activities, streamlining data collection for vital public health initiatives.")
+        st.markdown("**Core Engines:** `Google Sheets` • `Data Management` • `NIP Tracking` • `Data Validation`")
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        nip_c1, nip_c2 = st.columns(2)
+        with nip_c1:
+            st.markdown("### 💉 Immunization Campaigns")
+            st.markdown("""
+            <div class="project-list">
+            • School Based Immunization Tracker (2024 & 2025) <br>
+            • bOPV Supplemental Immunization Activity (2023 & 2024) <br>
+            • MR Supplemental Immunization Activity (2023 & 2024)
+            </div>
+            """, unsafe_allow_html=True)
+        with nip_c2:
+            st.markdown("### 📋 Logistics & Outbreak Response")
+            st.markdown("""
+            <div class="project-list">
+            • COVID-19 Vaccination Tracker <br>
+            • Flu Vaccination Tracker <br>
+            • Vaccine Physical Inventory Tracker <br>
+            • <i>And many more custom surveillance tools...</i>
+            </div>
+            """, unsafe_allow_html=True)
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.header("🎨 Visual Design & Cartography")
-    st.write("Conceptualized and designed high-impact visual assets and maps for critical public health initiatives and disaster risk reduction programs.")
-    st.markdown("**Core Engines:** `Canva` • `Graphic Design` • `Cartography`")
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    canva_c1, canva_c2 = st.columns(2)
-    with canva_c1:
-        st.markdown("### 🏥 Health & Training Events")
-        st.markdown("""
-        <div class="project-list">
-        • Buntis Congress Sticker Layout <br>
-        • Basic Life Support & Standard First Aid Training Tarpaulin <br>
-        • Hearts Month Celebration 2026 Tarpaulin <br>
-        • National Oral Health Month 2026 Tarpaulin
-        </div>
-        """, unsafe_allow_html=True)
-    with canva_c2:
-        st.markdown("### 🚨 DRRM-H & Mapping")
-        st.markdown("""
-        <div class="project-list">
-        • DRRM Plan Cover Page Layout <br>
-        • Pre-planning of the 2026-2028 DRRM-H Plan Tarpaulin <br>
-        • Finalization of the 2026-2028 DRRM-H Plan Tarpaulin <br>
-        • High Resolution Health Facility Map of Abra
-        </div>
-        """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        st.header("🎨 Visual Design & Cartography")
+        st.write("Conceptualized and designed high-impact visual assets and maps for critical public health initiatives and disaster risk reduction programs.")
+        st.markdown("**Core Engines:** `Canva` • `Graphic Design` • `Cartography`")
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        canva_c1, canva_c2 = st.columns(2)
+        with canva_c1:
+            st.markdown("### 🏥 Health & Training Events")
+            st.markdown("""
+            <div class="project-list">
+            • Buntis Congress Sticker Layout <br>
+            • Basic Life Support & Standard First Aid Training Tarpaulin <br>
+            • Hearts Month Celebration 2026 Tarpaulin <br>
+            • National Oral Health Month 2026 Tarpaulin
+            </div>
+            """, unsafe_allow_html=True)
+        with canva_c2:
+            st.markdown("### 🚨 DRRM-H & Mapping")
+            st.markdown("""
+            <div class="project-list">
+            • DRRM Plan Cover Page Layout <br>
+            • Pre-planning of the 2026-2028 DRRM-H Plan Tarpaulin <br>
+            • Finalization of the 2026-2028 DRRM-H Plan Tarpaulin <br>
+            • High Resolution Health Facility Map of Abra
+            </div>
+            """, unsafe_allow_html=True)
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.header("🎬 Video Production & Content Creation")
-    st.write("Editing, directing, and producing highly engaging multimedia content tailored for varying social media algorithms and audiences.")
-    st.markdown("**Core Engines:** `Premiere Pro` • `CapCut` • `After Effects` • `Filmora` • `PowerDirector`")
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    vid_c1, vid_c2 = st.columns(2)
-    with vid_c1:
-        st.markdown("### 📱 Distribution Platforms")
-        st.markdown("""
-        <div class="project-list">
-        • YouTube Content <br>
-        • TikTok Shorts <br>
-        • Facebook Reels & Long-form Video
-        </div>
-        """, unsafe_allow_html=True)
-    with vid_c2:
-        st.markdown("### ✂️ Editorial Toolkit")
-        st.markdown("""
-        <div class="project-list">
-        • Advanced Timeline Editing & Transitions <br>
-        • Motion Graphics & Basic VFX <br>
-        • Multi-platform Format Optimization
-        </div>
-        """, unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        st.header("🎬 Video Production & Content Creation")
+        st.write("Editing, directing, and producing highly engaging multimedia content tailored for varying social media algorithms and audiences.")
+        st.markdown("**Core Engines:** `Premiere Pro` • `CapCut` • `After Effects` • `Filmora` • `PowerDirector`")
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        vid_c1, vid_c2 = st.columns(2)
+        with vid_c1:
+            st.markdown("### 📱 Distribution Platforms")
+            st.markdown("""
+            <div class="project-list">
+            • YouTube Content <br>
+            • TikTok Shorts <br>
+            • Facebook Reels & Long-form Video
+            </div>
+            """, unsafe_allow_html=True)
+        with vid_c2:
+            st.markdown("### ✂️ Editorial Toolkit")
+            st.markdown("""
+            <div class="project-list">
+            • Advanced Timeline Editing & Transitions <br>
+            • Motion Graphics & Basic VFX <br>
+            • Multi-platform Format Optimization
+            </div>
+            """, unsafe_allow_html=True)
 
 # ==========================================
 # PAGE 3: EXPERIENCE (TOUR OF DUTY)
@@ -389,46 +404,42 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
     st.write("A timeline of my professional experience, showcasing my background in data management, financial operations, and public health tracking.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # --- DOH Role ---
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown('<h2 class="job-title">Data Controller III</h2>', unsafe_allow_html=True)
-    st.markdown('**Department of Health (DOH) CHD CAR - Provincial DOH Office Abra**')
-    st.markdown('<div class="job-date">2021 – Present</div>', unsafe_allow_html=True)
-    st.markdown("""
-    * **Data Systems:** Managed and analyzed vaccination-related data for Covid-19, supplementary, and routine immunization programs.
-    * **Performance Benchmark:** Consistently ranked as the first to report vaccination data to the Regional Office out of six provinces and one city, setting the standard for timely submissions.
-    * **Data Integrity:** Conducted regular audits to verify data accuracy, provided expert technical support to data managers, and ensured strict compliance with data privacy regulations.
-    * **Public Health Support:** Prepared data reports, generated vaccination certificates, and supported quality management system (QMS) implementation.
-    """)
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        st.markdown('<h2 class="job-title">Data Controller III</h2>', unsafe_allow_html=True)
+        st.markdown('**Department of Health (DOH) CHD CAR - Provincial DOH Office Abra**')
+        st.markdown('<div class="job-date">2021 – Present</div>', unsafe_allow_html=True)
+        st.markdown("""
+        * **Data Systems:** Managed and analyzed vaccination-related data for Covid-19, supplementary, and routine immunization programs.
+        * **Performance Benchmark:** Consistently ranked as the first to report vaccination data to the Regional Office out of six provinces and one city, setting the standard for timely submissions.
+        * **Data Integrity:** Conducted regular audits to verify data accuracy, provided expert technical support to data managers, and ensured strict compliance with data privacy regulations.
+        * **Public Health Support:** Prepared data reports, generated vaccination certificates, and supported quality management system (QMS) implementation.
+        """)
 
-    # --- ASA Philippines Role ---
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown('<h2 class="job-title">Junior Microfinance Officer</h2>', unsafe_allow_html=True)
-    st.markdown('**ASA Philippines Foundation, Inc.**')
-    st.markdown('<div class="job-date">2018 – 2021</div>', unsafe_allow_html=True)
-    st.markdown("""
-    * **Financial Operations:** Oversaw the full accounting cycle, from initial data collection and document preparation to report generation and closing financial records.
-    * **Client Management:** Delivered exceptional customer service by processing loan applications efficiently and communicating terms clearly to applicants.
-    * **Award Recognition:** Honored with multiple internal awards including *Employee of the Month*, *Best in Loan Portfolio*, and *Best in Recruitment* for consistently exceeding performance metrics.
-    """)
-    st.markdown('</div>', unsafe_allow_html=True)
-    
-    # --- SM Supermarket Role ---
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown('<h2 class="job-title">Stock Clerk</h2>', unsafe_allow_html=True)
-    st.markdown('**SM Supermarket Baguio**')
-    st.markdown('<div class="job-date">2018</div>', unsafe_allow_html=True)
-    st.markdown("""
-    * **Logistics & Inventory:** Efficiently managed inventory storage ensuring accurate tracking, easy access, and proper stock rotation.
-    * **Operations Support:** Maintained hazard-free environments, shelved new merchandise according to standards, and actively assisted customers on the floor.
-    """)
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        st.markdown('<h2 class="job-title">Junior Microfinance Officer</h2>', unsafe_allow_html=True)
+        st.markdown('**ASA Philippines Foundation, Inc.**')
+        st.markdown('<div class="job-date">2018 – 2021</div>', unsafe_allow_html=True)
+        st.markdown("""
+        * **Financial Operations:** Oversaw the full accounting cycle, from initial data collection and document preparation to report generation and closing financial records.
+        * **Client Management:** Delivered exceptional customer service by processing loan applications efficiently and communicating terms clearly to applicants.
+        * **Award Recognition:** Honored with multiple internal awards including *Employee of the Month*, *Best in Loan Portfolio*, and *Best in Recruitment* for consistently exceeding performance metrics.
+        """)
+        
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        st.markdown('<h2 class="job-title">Stock Clerk</h2>', unsafe_allow_html=True)
+        st.markdown('**SM Supermarket Baguio**')
+        st.markdown('<div class="job-date">2018</div>', unsafe_allow_html=True)
+        st.markdown("""
+        * **Logistics & Inventory:** Efficiently managed inventory storage ensuring accurate tracking, easy access, and proper stock rotation.
+        * **Operations Support:** Maintained hazard-free environments, shelved new merchandise according to standards, and actively assisted customers on the floor.
+        """)
 
-    # --- Education ---
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.header("🎓 Academic Training")
-    st.markdown("**Bachelor of Science in Information Technology**")
-    st.markdown("Divine Word College of Bangued | *2014 – 2018*")
-    st.write("Graduated with a solid foundation in IT concepts, systems analysis, programming, database management, and network security.")
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<span class="glass-card-start"></span>', unsafe_allow_html=True)
+        st.header("🎓 Academic Training")
+        st.markdown("**Bachelor of Science in Information Technology**")
+        st.markdown("Divine Word College of Bangued | *2014 – 2018*")
+        st.write("Graduated with a solid foundation in IT concepts, systems analysis, programming, database management, and network security.")
