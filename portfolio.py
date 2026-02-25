@@ -233,10 +233,10 @@ if page == "🏠 Basecamp (Home)":
         with st.container(border=True):
             st.subheader("📊 Skill Universe")
             
-            # PURE HTML/CSS RADAR BEAM (Glitch-free, absolute centering)
+            # PURE HTML/CSS RADAR BEAM (Nudged down to 45px and tightened to 290px diameter)
             st.markdown("""
             <div style="position: relative; width: 100%; height: 0px; display: flex; justify-content: center; z-index: 0;">
-                <div style="position: absolute; top: 20px; width: 310px; height: 310px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%); animation: radar-spin 4s infinite linear; pointer-events: none;"></div>
+                <div style="position: absolute; top: 45px; width: 290px; height: 290px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%); animation: radar-spin 4s infinite linear; pointer-events: none;"></div>
             </div>
             """, unsafe_allow_html=True)
             
