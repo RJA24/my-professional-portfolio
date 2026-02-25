@@ -77,7 +77,7 @@ st.markdown("""
         50% { transform: translateY(-15px); }
         100% { transform: translateY(0px); }
     }
-    .floating-img { animation: float float 4s ease-in-out infinite; }
+    .floating-img { animation: float 4s ease-in-out infinite; }
     
     .typing-text {
         overflow: hidden;
@@ -110,6 +110,31 @@ st.markdown("""
         padding: 25px;
         margin-bottom: 20px;
     }
+    
+    /* NEW: Radar Scanner Animation */
+    .radar-wrapper {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .radar-wrapper::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(transparent 70%, rgba(76, 201, 240, 0.35) 100%);
+        border-radius: 50%;
+        animation: radar-spin 4s infinite linear;
+        pointer-events: none; /* Prevents blocking hovers */
+        z-index: -1; /* Puts it behind the chart */
+    }
+    @keyframes radar-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
     h1, h2, h3 { color: #4cc9f0 !important; text-shadow: 0 0 15px rgba(76, 201, 240, 0.6); }
     
     .stButton>button, [data-testid="stDownloadButton"] button { 
@@ -218,7 +243,8 @@ if page == "🏠 Basecamp (Home)":
 
     c1, c2 = st.columns([1, 1])
     with c1:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        # HERE IS THE RADAR WRAPPER ADDITION
+        st.markdown('<div class="glass-card radar-wrapper">', unsafe_allow_html=True)
         st.subheader("📊 Skill Universe")
         st.plotly_chart(fig, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
