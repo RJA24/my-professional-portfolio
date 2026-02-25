@@ -21,7 +21,13 @@ fig.update_layout(
     height=350
 )
 
-dummy_resume = b"This is a placeholder for your stellar resume."
+# --- RESUME SETUP ---
+# This block looks for "resume.pdf" in your GitHub repository
+try:
+    with open("resume.pdf", "rb") as pdf_file:
+        resume_bytes = pdf_file.read()
+except FileNotFoundError:
+    resume_bytes = b"Please upload your resume.pdf to the repository to enable this download."
 
 # --- COSMIC CSS ---
 st.markdown("""
@@ -150,7 +156,8 @@ if page == "🏠 Basecamp (Home)":
         """)
         
         st.markdown("<br>", unsafe_allow_html=True)
-        st.download_button("Download Mission Log (Resume)", data=dummy_resume, file_name="Ron_Jay_Resume.pdf", mime="application/pdf")
+        # --- THE UPDATED DOWNLOAD BUTTON ---
+        st.download_button("Download Mission Log (Resume)", data=resume_bytes, file_name="Ron_Jay_Ayup_Resume.pdf", mime="application/pdf")
 
     st.markdown("<br>", unsafe_allow_html=True)
     
