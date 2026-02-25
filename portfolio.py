@@ -179,12 +179,16 @@ if page == "🏠 Basecamp (Home)":
     with c2:
         st.markdown('<div class="glass-card" style="height: 100%;">', unsafe_allow_html=True)
         st.subheader("📬 Contact the Bridge")
-        with st.form("contact_form"):
-            name = st.text_input("Name")
-            msg = st.text_area("Message")
-            submitted = st.form_submit_button("Send Signal 🛸")
-            if submitted:
-                st.success("Signal sent into the deep!")
+        contact_form = """
+        <form action="https://formsubmit.co/ronjay.1204@gmail.com" method="POST">
+             <input type="hidden" name="_captcha" value="false">
+             <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background: rgba(255, 255, 255, 0.1); color: white;">
+             <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; background: rgba(255, 255, 255, 0.1); color: white;">
+             <textarea name="message" placeholder="Your Message" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; height: 100px; background: rgba(255, 255, 255, 0.1); color: white;"></textarea>
+             <button type="submit" style="padding: 10px 20px; border-radius: 50px; background: linear-gradient(45deg, #7209b7, #3f37c9); color: white; border: none; cursor: pointer; width: 100%; transition: 0.3s ease;">Send Signal 🛸</button>
+        </form>
+        """
+        st.markdown(contact_form, unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
 # ==========================================
