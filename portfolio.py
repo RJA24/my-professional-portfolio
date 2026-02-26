@@ -110,7 +110,7 @@ st.markdown("""
         padding: 20px !important;
     }
     
-    /* FAQ EXPANDER STYLING */
+    /* FAQ EXPANDER & TABS STYLING */
     [data-testid="stExpander"] {
         background: rgba(0, 0, 0, 0.3) !important;
         border: 1px solid rgba(76, 201, 240, 0.3) !important;
@@ -119,6 +119,21 @@ st.markdown("""
     [data-testid="stExpander"] summary {
         color: #4cc9f0 !important;
         font-weight: bold;
+    }
+    
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 10px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px 10px 0px 0px;
+        padding: 10px 20px;
+        color: #ffffff;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: rgba(188, 19, 254, 0.2);
+        border-bottom: 2px solid #BC13FE;
+        color: #4cc9f0 !important;
     }
     
     /* RADAR SPIN ANIMATION */
@@ -243,7 +258,7 @@ if page == "🏠 Basecamp (Home)":
         with st.container(border=True):
             st.subheader("📹 Incoming Transmission")
             st.video("https://www.youtube.com/watch?v=EZGyf0IJv3c") 
-            st.caption("*^ Press play for a quick overview of my skills, experience, and how I can add value to your team! - Test Video*")
+            st.caption("*^ Press play for a quick overview of my skills, experience, and how I can add value to your team!*")
 
     with v_col2:
         with st.container(border=True):
@@ -300,7 +315,7 @@ if page == "🏠 Basecamp (Home)":
         with st.container(border=True):
             st.subheader("📊 Skill Universe")
             
-            # PURE HTML/CSS RADAR BEAM (Set precisely to 28.5px based on your adjustment)
+            # PURE HTML/CSS RADAR BEAM 
             st.markdown("""
             <div style="position: relative; width: 100%; height: 0px; display: flex; justify-content: center; z-index: 0;">
                 <div style="position: absolute; top: 28.5px; width: 310px; height: 310px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 70%, rgba(188, 19, 254, 0.7) 100%); animation: radar-spin 4s infinite linear; pointer-events: none;"></div>
@@ -360,10 +375,18 @@ elif page == "🛸 Mission Logs (Projects)":
             st.markdown("**Core Engines:** `Python` • `Streamlit` • `Plotly` • `Google API`")
             st.link_button("Launch Dashboard 🚀", "https://abra-sbi-dashboard-5uubqi6rcsqdknxudevhrv.streamlit.app/")
 
+    # --- UPDATED NIP DATA TRACKING WITH METRICS ---
     with st.container(border=True):
         st.header("📊 NIP Data Tracking & Automation")
         st.write("Engineered comprehensive Google Sheet trackers to monitor, evaluate, and manage National Immunization Program (NIP) activities, streamlining data collection for vital public health initiatives.")
         st.markdown("**Core Engines:** `Google Sheets` • `Data Management` • `NIP Tracking` • `Data Validation`")
+        
+        # New Impact Metrics Section
+        st.markdown("<br>", unsafe_allow_html=True)
+        met1, met2, met3 = st.columns(3)
+        met1.metric(label="Province Monitored", value="Abra", delta="Target Region", delta_color="off")
+        met2.metric(label="Municipalities Tracked", value="27", delta="100% Coverage", delta_color="normal")
+        met3.metric(label="Data Accuracy", value="100%", delta="Regularly Audited", delta_color="normal")
         st.markdown("<br>", unsafe_allow_html=True)
         
         nip_c1, nip_c2 = st.columns(2)
@@ -387,33 +410,39 @@ elif page == "🛸 Mission Logs (Projects)":
             </div>
             """, unsafe_allow_html=True)
 
+    # --- UPDATED CANVA DESIGN GALLERY ---
     with st.container(border=True):
-        st.header("🎨 Visual Design & Cartography")
+        st.header("🎨 Visual Design & Cartography Gallery")
         st.write("Conceptualized and designed high-impact visual assets and maps for critical public health initiatives and disaster risk reduction programs.")
         st.markdown("**Core Engines:** `Canva` • `Graphic Design` • `Cartography`")
         st.markdown("<br>", unsafe_allow_html=True)
         
-        canva_c1, canva_c2 = st.columns(2)
-        with canva_c1:
-            st.markdown("### 🏥 Health & Training Events")
-            st.markdown("""
-            <div class="project-list">
-            • Buntis Congress Sticker Layout <br>
-            • Basic Life Support & Standard First Aid Training Tarpaulin <br>
-            • Hearts Month Celebration 2026 Tarpaulin <br>
-            • National Oral Health Month 2026 Tarpaulin
-            </div>
-            """, unsafe_allow_html=True)
-        with canva_c2:
-            st.markdown("### 🚨 DRRM-H & Mapping")
-            st.markdown("""
-            <div class="project-list">
-            • DRRM Plan Cover Page Layout <br>
-            • Pre-planning of the 2026-2028 DRRM-H Plan Tarpaulin <br>
-            • Finalization of the 2026-2028 DRRM-H Plan Tarpaulin <br>
-            • High Resolution Health Facility Map of Abra
-            </div>
-            """, unsafe_allow_html=True)
+        # Interactive Image Gallery using Tabs
+        tab1, tab2, tab3 = st.tabs(["🏥 Health & Training Events", "🚨 DRRM-H & Mapping", "🎉 Celebrations & Collateral"])
+        
+        with tab1:
+            gal1, gal2 = st.columns([1, 1])
+            with gal1:
+                st.markdown("#### Buntis Congress Sticker Layout")
+                # Swap these URLs with the raw GitHub links to your actual Canva exports!
+                st.image("https://images.unsplash.com/photo-1632362540673-f9a8f278d6b1?q=80&w=2070&auto=format&fit=crop", caption="Buntis Congress Layout (Placeholder)")
+            with gal2:
+                st.markdown("#### First Aid Training Tarpaulin")
+                st.image("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop", caption="Basic Life Support Tarpaulin (Placeholder)")
+                
+        with tab2:
+            st.markdown("#### High Resolution Health Facility Map of Abra")
+            st.image("https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop", caption="Provincial Map & DRRM Cover Page (Placeholder)")
+            st.write("*Layouts included the pre-planning and finalization of the 2026-2028 DRRM-H Plan Tarpaulins.*")
+            
+        with tab3:
+            gal3, gal4 = st.columns([1, 1])
+            with gal3:
+                st.markdown("#### Hearts Month Celebration 2026")
+                st.image("https://images.unsplash.com/photo-1505506874110-6a7a4f4aa009?q=80&w=1974&auto=format&fit=crop", caption="Heart Smart Celebration Tarpaulin (Placeholder)")
+            with gal4:
+                st.markdown("#### National Oral Health Month 2026")
+                st.image("https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop", caption="Oral Health Tarpaulin (Placeholder)")
 
     with st.container(border=True):
         st.header("🎬 Video Production & Content Creation")
