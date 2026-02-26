@@ -439,7 +439,7 @@ elif page == "🛸 Mission Logs (Projects)":
             # Using 3 columns to separate the DRRM-H assets
             drrm1, drrm2, drrm3 = st.columns(3)
             with drrm1:
-                st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="DRRM-H Cover Page (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/2026-2028.png?raw=true&auto=format&fit=crop", caption="DRRM-H Cover Page (Placeholder)")
             with drrm2:
                 st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="Pre-planning Tarpaulin (Placeholder)")
             with drrm3:
