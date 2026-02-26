@@ -420,9 +420,6 @@ elif page == "🛸 Mission Logs (Projects)":
         with tab1:
             gal1, gal2 = st.columns([1, 1])
             with gal1:
-                st.markdown("#### Buntis Congress Sticker Layout")
-                st.image("https://images.unsplash.com/photo-1632362540673-f9a8f278d6b1?q=80&w=2070&auto=format&fit=crop", caption="Buntis Congress Layout (Placeholder)")
-            with gal2:
                 st.markdown("#### First Aid Training Tarpaulin")
                 st.image("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop", caption="Basic Life Support Tarpaulin (Placeholder)")
                 
