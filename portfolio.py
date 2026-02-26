@@ -373,7 +373,7 @@ elif page == "🛸 Mission Logs (Projects)":
     with st.container(border=True):
         p0_col1, p0_col2 = st.columns([1, 2])
        with p0_col1:
-            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/vaccine-dashboard.png?raw=true", use_container_width=True, caption="Live Dashboard Interface")
+            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Capture.PNG?raw=true", use_container_width=True, caption="Live Dashboard Interface")
         with p0_col2:
             st.header("Abra PHO Vaccine Inventory Command Center")
             st.write("A secure, real-time logistics web application transforming complex 2D spreadsheet matrices into a searchable database for tracking cold chain stock, expiries, and critical stockouts across 27 municipalities.")
