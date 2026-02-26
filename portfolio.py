@@ -243,7 +243,7 @@ if page == "🏠 Basecamp (Home)":
         with st.container(border=True):
             st.subheader("📹 Incoming Transmission")
             st.video("https://www.youtube.com/watch?v=EZGyf0IJv3c") 
-            st.caption("*^ Press play for a quick overview of my skills, experience, and how I can add value to your team!*")
+            st.caption("*^ Press play for a quick overview of my skills, experience, and how I can add value to your team! - Test Video*")
 
     with v_col2:
         with st.container(border=True):
