@@ -7,14 +7,15 @@ st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide"
 
 # --- DATA & ASSETS ---
 df = pd.DataFrame(dict(
-    r=[90, 85, 80, 75, 85],
-    theta=['Python (AI-Assisted)','Data Tracking','Video Editing','Canva Design','NIP Automation'],
+    r=[90, 85, 80, 75, 85, 85],
+    theta=['Python (AI-Assisted)','Data Tracking','Video Editing','Canva Design','NIP Automation', 'IT & Admin Support'],
     Details=[
         'Building Streamlit apps & automating workflows via AI',
         'Real-time dashboards & advanced Google Sheets auditing',
         'Premiere Pro & CapCut for YouTube, TikTok, & Reels',
         'High-impact visual assets, mapping, & event collateral',
-        'Streamlining public health reporting & data systems'
+        'Streamlining public health reporting & data systems',
+        'Hardware troubleshooting, presentation design, & formatting'
     ]
 ))
 
@@ -284,16 +285,22 @@ if page == "🏠 Basecamp (Home)":
     # 3. CORE VA SERVICES & TECH STACK
     with st.container(border=True):
         st.header("🛠️ Core VA Services")
-        s1, s2, s3 = st.columns(3)
+        
+        # Upgraded to a 2x2 grid to make room for the "All-Arounder" skills
+        s1, s2 = st.columns(2)
         with s1:
             st.markdown("### 📊 Data & Dashboards")
             st.write("Google Sheets automation, real-time data tracking (like NIP workflows), and transforming raw data into clear, interactive Streamlit/Plotly dashboards.")
-        with s2:
+            
             st.markdown("### 🎬 Multimedia Magic")
             st.write("End-to-end video editing using Premiere Pro and CapCut for YouTube, TikTok, and Reels, plus eye-catching graphic design via Canva.")
-        with s3:
+            
+        with s2:
             st.markdown("### 🤖 AI-Powered Support")
             st.write("Leveraging AI tools to vibe-code custom solutions, streamline repetitive tasks, and bring tech-forward efficiency to daily administrative operations.")
+            
+            st.markdown("### 🖥️ IT & Admin 'All-Arounder'")
+            st.write("The go-to troubleshooter for computer hardware, complex document layout formatting, and crafting high-stakes PowerPoint presentations and official event certificates.")
             
         st.markdown("---")
         st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>🪐 Tech Stack Orbit</h4>", unsafe_allow_html=True)
@@ -418,10 +425,8 @@ elif page == "🛸 Mission Logs (Projects)":
         tab1, tab2, tab3 = st.tabs(["🏥 Health & Training Events", "🚨 DRRM-H & Mapping", "🎉 Celebrations & Collateral"])
         
         with tab1:
-            gal1, gal2 = st.columns([1, 1])
-            with gal1:
-                st.markdown("#### First Aid Training Tarpaulin")
-                st.image("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop", caption="Basic Life Support Tarpaulin (Placeholder)")
+            st.markdown("#### First Aid Training Tarpaulin")
+            st.image("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop", caption="Basic Life Support Tarpaulin (Placeholder)")
                 
         with tab2:
             map_col, drrm_col = st.columns([1, 1])
@@ -434,6 +439,7 @@ elif page == "🛸 Mission Logs (Projects)":
                 st.write("*Includes the Cover Page, Pre-planning, and Finalization Tarpaulins.*")
             
         with tab3:
+            st.write("*Beyond large-scale layouts, I am the designated creator for all official event certificates, PowerPoint presentation decks, and document layouts used during Provincial Health Office activities.*")
             gal3, gal4 = st.columns([1, 1])
             with gal3:
                 st.markdown("#### Hearts Month Celebration 2026")
@@ -484,6 +490,7 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
         * **Data Systems:** Managed and analyzed vaccination-related data for Covid-19, supplementary, and routine immunization programs.
         * **Performance Benchmark:** Consistently ranked as the first to report vaccination data to the Regional Office out of six provinces and one city, setting the standard for timely submissions.
         * **Data Integrity:** Conducted regular audits to verify data accuracy, provided expert technical support to data managers, and ensured strict compliance with data privacy regulations.
+        * **All-Around IT & Admin Support:** Acted as the go-to technical resource—troubleshooting computer hardware, formatting complex document layouts, and designing official event certificates and PowerPoint presentations for all provincial health activities.
         * **Public Health Support:** Prepared data reports, generated vaccination certificates, and supported quality management system (QMS) implementation.
         """)
 
