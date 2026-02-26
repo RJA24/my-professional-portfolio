@@ -425,34 +425,42 @@ elif page == "🛸 Mission Logs (Projects)":
         tab1, tab2, tab3, tab4 = st.tabs(["🏥 Health Events", "🗺️ Cartography & Maps", "🚨 DRRM-H Plan Layouts", "🎉 Celebrations & Collateral"])
         
         with tab1:
-            st.markdown("#### First Aid Training Tarpaulin")
-            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/PHO%20BLS%20SFA.png?raw=true&auto=format&fit=crop", caption="Basic Life Support Tarpaulin")
+            # Using spacer columns to shrink the single image
+            t1_spacer1, t1_main, t1_spacer2 = st.columns([1, 2, 1])
+            with t1_main:
+                st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>First Aid Training Tarpaulin</h4>", unsafe_allow_html=True)
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/PHO%20BLS%20SFA.png?raw=true&auto=format&fit=crop", caption="Basic Life Support Tarpaulin")
                 
         with tab2:
-            st.markdown("#### High Resolution Health Facility Map of Abra")
-            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/ABRA.png?raw=true&auto=format&fit=crop", caption="Health Facility Map")
+            # Using spacer columns to frame the map nicely
+            t2_spacer1, t2_main, t2_spacer2 = st.columns([1, 3, 1])
+            with t2_main:
+                st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>High Resolution Health Facility Map of Abra</h4>", unsafe_allow_html=True)
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/ABRA.png?raw=true&auto=format&fit=crop", caption="Health Facility Map")
             
         with tab3:
             st.markdown("#### 2026-2028 DRRM-H Plan Layouts")
             st.write("*Includes the Cover Page, Pre-planning, and Finalization Tarpaulins.*")
             
-            # Using 3 columns to separate the DRRM-H assets
+            # Using 3 columns evenly divides and shrinks the 3 DRRM-H assets
             drrm1, drrm2, drrm3 = st.columns(3)
             with drrm1:
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/2026-2028.png?raw=true&auto=format&fit=crop", caption="DRRM-H Cover Page (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/2026-2028.png?raw=true&auto=format&fit=crop", caption="DRRM-H Cover Page")
             with drrm2:
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Pre-planning.png?raw=true&auto=format&fit=crop", caption="Pre-planning Tarpaulin (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Pre-planning.png?raw=true&auto=format&fit=crop", caption="Pre-planning Tarpaulin")
             with drrm3:
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Finalization.png?raw=true&auto=format&fit=crop", caption="Finalization Tarpaulin (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Finalization.png?raw=true&auto=format&fit=crop", caption="Finalization Tarpaulin")
             
         with tab4:
             st.write("*Beyond large-scale layouts, I am the designated creator for all official event certificates, PowerPoint presentation decks, and document layouts used during Provincial Health Office activities.*")
-            gal3, gal4 = st.columns([1, 1])
+            
+            # Using spacer columns to slightly shrink the 2 images
+            t4_sp1, gal3, gal4, t4_sp2 = st.columns([0.5, 2, 2, 0.5])
             with gal3:
-                st.markdown("#### Hearts Month Celebration 2026")
+                st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>Hearts Month Celebration 2026</h4>", unsafe_allow_html=True)
                 st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts%20Month.png?raw=true&auto=format&fit=crop", caption="Heart Smart Celebration Tarpaulin")
             with gal4:
-                st.markdown("#### National Oral Health Month 2026")
+                st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>National Oral Health Month 2026</h4>", unsafe_allow_html=True)
                 st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Facebook%20post.png?raw=true&auto=format&fit=crop", caption="Oral Health Tarpaulin")
 
     with st.container(border=True):
