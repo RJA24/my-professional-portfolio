@@ -426,13 +426,13 @@ elif page == "🛸 Mission Logs (Projects)":
         
         with tab1:
             st.markdown("#### First Aid Training Tarpaulin")
-            st.image("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop", caption="Basic Life Support Tarpaulin (Placeholder)")
+            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/PHO%20BLS%20SFA.png?raw=true", caption="Basic Life Support Tarpaulin (Placeholder)")
                 
         with tab2:
             map_col, drrm_col = st.columns([1, 1])
             with map_col:
                 st.markdown("#### High Resolution Health Facility Map of Abra")
-                st.image("https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop", caption="Health Facility Map (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/ABRA.png?raw=true", caption="Health Facility Map (Placeholder)")
             with drrm_col:
                 st.markdown("#### 2026-2028 DRRM-H Plan Layouts")
                 st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="DRRM-H Cover Page & Tarpaulins (Placeholder)")
@@ -443,10 +443,10 @@ elif page == "🛸 Mission Logs (Projects)":
             gal3, gal4 = st.columns([1, 1])
             with gal3:
                 st.markdown("#### Hearts Month Celebration 2026")
-                st.image("https://images.unsplash.com/photo-1505506874110-6a7a4f4aa009?q=80&w=1974&auto=format&fit=crop", caption="Heart Smart Celebration Tarpaulin (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts%20Month.png?raw=true", caption="Heart Smart Celebration Tarpaulin (Placeholder)")
             with gal4:
                 st.markdown("#### National Oral Health Month 2026")
-                st.image("https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop", caption="Oral Health Tarpaulin (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Facebook%20post.png?raw=true", caption="Oral Health Tarpaulin (Placeholder)")
 
     with st.container(border=True):
         st.header("🎬 Video Production & Content Creation")
