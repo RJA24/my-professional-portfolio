@@ -243,7 +243,7 @@ if page == "🏠 Basecamp (Home)":
         with st.container(border=True):
             st.subheader("📹 Incoming Transmission")
             # Replace this YouTube URL with your own unlisted video link when you record it!
-            st.video("https://www.youtube.com/watch?v=LXb3EKWsInQ") 
+            st.video("https://www.youtube.com/watch?v=EZGyf0IJv3c") 
             st.caption("*^ This is a placeholder! Swap the link in the code to your own introduction video to instantly build trust with clients.*")
 
     with v_col2:
