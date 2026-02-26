@@ -458,7 +458,7 @@ elif page == "🛸 Mission Logs (Projects)":
             t4_sp1, gal3, gal4, t4_sp2 = st.columns([0.5, 2, 2, 0.5])
             with gal3:
                 st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>Hearts Month Celebration 2026</h4>", unsafe_allow_html=True)
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts%20Month.png?raw=true&auto=format&fit=crop", caption="Heart Smart Celebration Tarpaulin")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts.png?raw=true&auto=format&fit=crop", caption="Heart Smart Celebration Tarpaulin")
             with gal4:
                 st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>National Oral Health Month 2026</h4>", unsafe_allow_html=True)
                 st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Facebook%20post.png?raw=true&auto=format&fit=crop", caption="Oral Health Tarpaulin")
