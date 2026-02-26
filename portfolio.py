@@ -426,11 +426,11 @@ elif page == "🛸 Mission Logs (Projects)":
         
         with tab1:
             st.markdown("#### First Aid Training Tarpaulin")
-            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/PHO%20BLS%20SFA.png?raw=true", caption="Basic Life Support Tarpaulin")
+            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/PHO%20BLS%20SFA.png?raw=true&auto=format&fit=crop", caption="Basic Life Support Tarpaulin")
                 
         with tab2:
             st.markdown("#### High Resolution Health Facility Map of Abra")
-            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/ABRA.png?raw=true", caption="Health Facility Map")
+            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/ABRA.png?raw=true&auto=format&fit=crop", caption="Health Facility Map")
             
         with tab3:
             st.markdown("#### 2026-2028 DRRM-H Plan Layouts")
@@ -441,19 +441,19 @@ elif page == "🛸 Mission Logs (Projects)":
             with drrm1:
                 st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/2026-2028.png?raw=true&auto=format&fit=crop", caption="DRRM-H Cover Page (Placeholder)")
             with drrm2:
-                st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="Pre-planning Tarpaulin (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Pre-planning.png?raw=true&auto=format&fit=crop", caption="Pre-planning Tarpaulin (Placeholder)")
             with drrm3:
-                st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="Finalization Tarpaulin (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Finalization.png?raw=true&auto=format&fit=crop", caption="Finalization Tarpaulin (Placeholder)")
             
         with tab4:
             st.write("*Beyond large-scale layouts, I am the designated creator for all official event certificates, PowerPoint presentation decks, and document layouts used during Provincial Health Office activities.*")
             gal3, gal4 = st.columns([1, 1])
             with gal3:
                 st.markdown("#### Hearts Month Celebration 2026")
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts%20Month.png?raw=true", caption="Heart Smart Celebration Tarpaulin")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts%20Month.png?raw=true&auto=format&fit=crop", caption="Heart Smart Celebration Tarpaulin")
             with gal4:
                 st.markdown("#### National Oral Health Month 2026")
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Facebook%20post.png?raw=true", caption="Oral Health Tarpaulin")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Facebook%20post.png?raw=true&auto=format&fit=crop", caption="Oral Health Tarpaulin")
 
     with st.container(border=True):
         st.header("🎬 Video Production & Content Creation")
