@@ -237,14 +237,13 @@ if page == "🏠 Basecamp (Home)":
 
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # 2. VIDEO INTRO & ACCOLADES (NEW)
+    # 2. VIDEO INTRO & ACCOLADES
     v_col1, v_col2 = st.columns([1, 1])
     with v_col1:
         with st.container(border=True):
             st.subheader("📹 Incoming Transmission")
-            # Replace this YouTube URL with your own unlisted video link when you record it!
             st.video("https://www.youtube.com/watch?v=EZGyf0IJv3c") 
-            st.caption("*^ This is a placeholder! Swap the link in the code to your own introduction video to instantly build trust with clients.*")
+            st.caption("*^ Press play for a quick overview of my skills, experience, and how I can add value to your team!*")
 
     with v_col2:
         with st.container(border=True):
@@ -327,7 +326,7 @@ if page == "🏠 Basecamp (Home)":
             """
             st.markdown(contact_form, unsafe_allow_html=True)
             
-    # 5. MISSION BRIEFING (FAQ) - NEW
+    # 5. MISSION BRIEFING (FAQ)
     with st.container(border=True):
         st.subheader("📋 Mission Briefing (FAQ)")
         
