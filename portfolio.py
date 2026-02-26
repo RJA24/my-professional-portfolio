@@ -286,7 +286,6 @@ if page == "🏠 Basecamp (Home)":
     with st.container(border=True):
         st.header("🛠️ Core VA Services")
         
-        # Upgraded to a 2x2 grid to make room for the "All-Arounder" skills
         s1, s2 = st.columns(2)
         with s1:
             st.markdown("### 📊 Data & Dashboards")
@@ -370,6 +369,18 @@ elif page == "🛸 Mission Logs (Projects)":
     st.write("A detailed archive of my data monitoring systems, visual design layouts, public health tracking architecture, and video content.")
     st.markdown("<br>", unsafe_allow_html=True)
     
+    # --- NEW: VACCINE INVENTORY COMMAND CENTER ---
+    with st.container(border=True):
+        p0_col1, p0_col2 = st.columns([1, 2])
+        with p0_col1:
+            st.image("https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?q=80&w=2070&auto=format&fit=crop", use_container_width=True)
+        with p0_col2:
+            st.header("Abra PHO Vaccine Inventory Command Center")
+            st.write("A secure, real-time logistics web application transforming complex 2D spreadsheet matrices into a searchable database for tracking cold chain stock, expiries, and critical stockouts across 27 municipalities.")
+            st.markdown("**Core Engines:** `Python` • `Streamlit` • `Pandas` • `Plotly` • `Google Sheets API`")
+            st.link_button("Launch Command Center 🚀", "https://abra-physical-inventory-wtrwyrwm6a9fq9ajknnzbd.streamlit.app")
+
+    # --- EXISTING: ABRA SBI DASHBOARD ---
     with st.container(border=True):
         p1_col1, p1_col2 = st.columns([1, 2])
         with p1_col1:
