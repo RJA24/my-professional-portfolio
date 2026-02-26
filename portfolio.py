@@ -422,31 +422,38 @@ elif page == "🛸 Mission Logs (Projects)":
         st.markdown("<br>", unsafe_allow_html=True)
         
         # Interactive Image Gallery using Tabs
-        tab1, tab2, tab3 = st.tabs(["🏥 Health & Training Events", "🚨 DRRM-H & Mapping", "🎉 Celebrations & Collateral"])
+        tab1, tab2, tab3, tab4 = st.tabs(["🏥 Health Events", "🗺️ Cartography & Maps", "🚨 DRRM-H Plan Layouts", "🎉 Celebrations & Collateral"])
         
         with tab1:
             st.markdown("#### First Aid Training Tarpaulin")
-            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/PHO%20BLS%20SFA.png?raw=true", caption="Basic Life Support Tarpaulin (Placeholder)")
+            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/PHO%20BLS%20SFA.png?raw=true", caption="Basic Life Support Tarpaulin")
                 
         with tab2:
-            map_col, drrm_col = st.columns([1, 1])
-            with map_col:
-                st.markdown("#### High Resolution Health Facility Map of Abra")
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/ABRA.png?raw=true", caption="Health Facility Map (Placeholder)")
-            with drrm_col:
-                st.markdown("#### 2026-2028 DRRM-H Plan Layouts")
-                st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="DRRM-H Cover Page & Tarpaulins (Placeholder)")
-                st.write("*Includes the Cover Page, Pre-planning, and Finalization Tarpaulins.*")
+            st.markdown("#### High Resolution Health Facility Map of Abra")
+            st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/ABRA.png?raw=true", caption="Health Facility Map")
             
         with tab3:
+            st.markdown("#### 2026-2028 DRRM-H Plan Layouts")
+            st.write("*Includes the Cover Page, Pre-planning, and Finalization Tarpaulins.*")
+            
+            # Using 3 columns to separate the DRRM-H assets
+            drrm1, drrm2, drrm3 = st.columns(3)
+            with drrm1:
+                st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="DRRM-H Cover Page (Placeholder)")
+            with drrm2:
+                st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="Pre-planning Tarpaulin (Placeholder)")
+            with drrm3:
+                st.image("https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=1974&auto=format&fit=crop", caption="Finalization Tarpaulin (Placeholder)")
+            
+        with tab4:
             st.write("*Beyond large-scale layouts, I am the designated creator for all official event certificates, PowerPoint presentation decks, and document layouts used during Provincial Health Office activities.*")
             gal3, gal4 = st.columns([1, 1])
             with gal3:
                 st.markdown("#### Hearts Month Celebration 2026")
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts%20Month.png?raw=true", caption="Heart Smart Celebration Tarpaulin (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts%20Month.png?raw=true", caption="Heart Smart Celebration Tarpaulin")
             with gal4:
                 st.markdown("#### National Oral Health Month 2026")
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Facebook%20post.png?raw=true", caption="Oral Health Tarpaulin (Placeholder)")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Facebook%20post.png?raw=true", caption="Oral Health Tarpaulin")
 
     with st.container(border=True):
         st.header("🎬 Video Production & Content Creation")
