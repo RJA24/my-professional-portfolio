@@ -110,6 +110,17 @@ st.markdown("""
         padding: 20px !important;
     }
     
+    /* FAQ EXPANDER STYLING */
+    [data-testid="stExpander"] {
+        background: rgba(0, 0, 0, 0.3) !important;
+        border: 1px solid rgba(76, 201, 240, 0.3) !important;
+        border-radius: 10px !important;
+    }
+    [data-testid="stExpander"] summary {
+        color: #4cc9f0 !important;
+        font-weight: bold;
+    }
+    
     /* RADAR SPIN ANIMATION */
     @keyframes radar-spin {
         from { transform: rotate(0deg); }
@@ -168,6 +179,15 @@ st.markdown("""
         font-style: italic;
         margin-bottom: 15px;
     }
+    
+    .quote-box {
+        border-left: 4px solid #BC13FE;
+        padding-left: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-style: italic;
+        color: #e0e0e0;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -190,6 +210,8 @@ with st.sidebar:
 # PAGE 1: HOME (BASECAMP)
 # ==========================================
 if page == "🏠 Basecamp (Home)":
+    
+    # 1. PROFILE & INTRO
     col1, col2 = st.columns([1, 2])
     with col1:
         st.markdown(f"""
@@ -215,6 +237,37 @@ if page == "🏠 Basecamp (Home)":
 
     st.markdown("<br>", unsafe_allow_html=True)
     
+    # 2. VIDEO INTRO & ACCOLADES (NEW)
+    v_col1, v_col2 = st.columns([1, 1])
+    with v_col1:
+        with st.container(border=True):
+            st.subheader("📹 Incoming Transmission")
+            # Replace this YouTube URL with your own unlisted video link when you record it!
+            st.video("https://www.youtube.com/watch?v=LXb3EKWsInQ") 
+            st.caption("*^ This is a placeholder! Swap the link in the code to your own introduction video to instantly build trust with clients.*")
+
+    with v_col2:
+        with st.container(border=True):
+            st.subheader("🏆 Commendations & Accolades")
+            st.write("A track record of setting benchmarks and exceeding expectations.")
+            
+            st.markdown("""
+            <div class="quote-box">
+            "Consistently ranked as the <b>first to report</b> critical data to the Regional Office out of six provinces and one city, setting the absolute standard for timely submissions." <br>
+            <i>— Department of Health (DOH) CHD CAR</i>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown("""
+            <div class="quote-box" style="border-left-color: #4cc9f0;">
+            🏅 <b>Employee of the Month</b> <br>
+            🏅 <b>Best in Loan Portfolio</b> <br>
+            🏅 <b>Best in Recruitment</b> <br>
+            <i>— ASA Philippines Foundation, Inc.</i>
+            </div>
+            """, unsafe_allow_html=True)
+            
+    # 3. CORE VA SERVICES & TECH STACK
     with st.container(border=True):
         st.header("🛠️ Core VA Services")
         s1, s2, s3 = st.columns(3)
@@ -227,7 +280,22 @@ if page == "🏠 Basecamp (Home)":
         with s3:
             st.markdown("### 🤖 AI-Powered Support")
             st.write("Leveraging AI tools to vibe-code custom solutions, streamline repetitive tasks, and bring tech-forward efficiency to daily administrative operations.")
+            
+        st.markdown("---")
+        st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>🪐 Tech Stack Orbit</h4>", unsafe_allow_html=True)
+        # Interactive badges for your tools
+        st.markdown("""
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+            <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">
+            <img src="https://img.shields.io/badge/Google_Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white">
+            <img src="https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white">
+            <img src="https://img.shields.io/badge/Premiere_Pro-9999FF?style=for-the-badge&logo=adobe-premiere-pro&logoColor=white">
+            <img src="https://img.shields.io/badge/CapCut-000000?style=for-the-badge&logo=capcut&logoColor=white">
+        </div>
+        """, unsafe_allow_html=True)
 
+    # 4. SKILL UNIVERSE & CONTACT FORM
     c1, c2 = st.columns([1, 1])
     with c1:
         with st.container(border=True):
@@ -258,6 +326,22 @@ if page == "🏠 Basecamp (Home)":
             </form>
             """
             st.markdown(contact_form, unsafe_allow_html=True)
+            
+    # 5. MISSION BRIEFING (FAQ) - NEW
+    with st.container(border=True):
+        st.subheader("📋 Mission Briefing (FAQ)")
+        
+        with st.expander("🌍 What are your core working hours and timezone?"):
+            st.write("I am based in the Philippines (GMT+8). However, as a Virtual Assistant, I offer highly flexible working hours. I am more than happy to overlap with your team's local timezone to ensure seamless real-time communication when needed.")
+            
+        with st.expander("⏱️ What is your typical turnaround time?"):
+            st.write("For standard data reporting, dashboard updates, and short-form video edits (TikTok/Reels), I typically deliver within 24 to 48 hours. For more complex automations or long-form video editing, I will provide a clear timeline upfront and ensure you get daily progress updates.")
+            
+        with st.expander("📡 How do we communicate during a project?"):
+            st.write("Clear and proactive communication is my top priority. I am highly responsive via Email, Slack, Microsoft Teams, WhatsApp, or Zoom—whichever platform integrates best into your existing workflow.")
+            
+        with st.expander("🤖 How exactly do you use AI to assist your workflows?"):
+            st.write("I leverage AI as a force multiplier. I use it to rapidly generate 'vibe-coded' Python scripts for repetitive tasks, construct complex Google Sheets formulas, troubleshoot data errors instantly, and ideate creative hooks for video content. This allows me to work faster and deliver higher-quality results to you.")
 
 # ==========================================
 # PAGE 2: PROJECTS (MISSION LOGS)
