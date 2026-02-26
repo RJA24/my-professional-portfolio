@@ -458,7 +458,7 @@ elif page == "🛸 Mission Logs (Projects)":
             t4_sp1, gal3, gal4, t4_sp2 = st.columns([0.5, 2, 2, 0.5])
             with gal3:
                 st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>Hearts Month Celebration 2026</h4>", unsafe_allow_html=True)
-                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts.png?raw=true&auto=format&fit=crop", caption="Heart Smart Celebration Tarpaulin")
+                st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Hearts%20Month.png?raw=true&auto=format&fit=crop", caption="Heart Smart Celebration Tarpaulin")
             with gal4:
                 st.markdown("<h4 style='text-align: center; color: #a9d6e5;'>National Oral Health Month 2026</h4>", unsafe_allow_html=True)
                 st.image("https://github.com/RJA24/my-professional-portfolio/blob/main/Facebook%20post.png?raw=true&auto=format&fit=crop", caption="Oral Health Tarpaulin")
@@ -502,7 +502,7 @@ elif page == "🧑‍🚀 Tour of Duty (Experience)":
         st.markdown('**Department of Health (DOH) CHD CAR - Provincial DOH Office Abra**')
         st.markdown('<div class="job-date">2021 – Present</div>', unsafe_allow_html=True)
         st.markdown("""
-        * **Data Systems:** Managed and analyzed vaccination-related data for Covid-19, supplementary, and routine immunization programs.
+        * **Data Systems & Scale:** Managed, analyzed, and consolidated vaccination-related data across all 27 municipalities of Abra for Covid-19, supplementary, and routine immunization programs.
         * **Performance Benchmark:** Consistently ranked as the first to report vaccination data to the Regional Office out of six provinces and one city, setting the standard for timely submissions.
         * **Data Integrity:** Conducted regular audits to verify data accuracy, provided expert technical support to data managers, and ensured strict compliance with data privacy regulations.
         * **All-Around IT & Admin Support:** Acted as the go-to technical resource—troubleshooting computer hardware, formatting complex document layouts, and designing official event certificates and PowerPoint presentations for all provincial health activities.
