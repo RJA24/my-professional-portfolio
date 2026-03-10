@@ -369,7 +369,18 @@ elif page == "🛸 Mission Logs (Projects)":
     st.write("A detailed archive of my data monitoring systems, visual design layouts, public health tracking architecture, and video content.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # --- NEW: VACCINE INVENTORY COMMAND CENTER ---
+    # --- NEW: ABRA FHSIS DASHBOARD ---
+    with st.container(border=True):
+        fhsis_col1, fhsis_col2 = st.columns([1, 2])
+        with fhsis_col1:
+            st.image("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop", use_container_width=True)
+        with fhsis_col2:
+            st.header("Abra FHSIS Dashboard")
+            st.write("A comprehensive web application designed to track, monitor, and visualize the 8 Priority Health Outcomes for the province of Abra. This tool streamlines Field Health Services Information System (FHSIS) reporting, turning raw public health data into actionable, easy-to-read metrics.")
+            st.markdown("**Core Engines:** `Python` • `Streamlit` • `Pandas` • `Plotly`")
+            st.link_button("Launch FHSIS Dashboard 🚀", "#") # Replace '#' with your actual deployed Streamlit link
+
+    # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
     with st.container(border=True):
         p0_col1, p0_col2 = st.columns([1, 2])
         with p0_col1:
