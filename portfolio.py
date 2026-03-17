@@ -378,7 +378,7 @@ elif page == "🛸 Mission Logs (Projects)":
             st.header("Abra FHSIS Dashboard")
             st.write("A comprehensive web application designed to track, monitor, and visualize the 8 Priority Health Outcomes for the province of Abra. This tool streamlines Field Health Services Information System (FHSIS) reporting, turning raw public health data into actionable, easy-to-read metrics.")
             st.markdown("**Core Engines:** `Python` • `Streamlit` • `Pandas` • `Plotly`")
-            st.link_button("Launch FHSIS Dashboard 🚀", "#") # Replace '#' with your actual deployed Streamlit link
+            st.link_button("Launch FHSIS Dashboard 🚀", "https://abra-fhsis.streamlit.app/") # Replace '#' with your actual deployed Streamlit link
 
     # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
     with st.container(border=True):
