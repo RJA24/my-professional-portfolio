@@ -378,7 +378,19 @@ elif page == "🛸 Mission Logs (Projects)":
             st.header("Abra FHSIS Dashboard")
             st.write("A comprehensive web application designed to track, monitor, and visualize the 8 Priority Health Outcomes for the province of Abra. This tool streamlines Field Health Services Information System (FHSIS) reporting, turning raw public health data into actionable, easy-to-read metrics.")
             st.markdown("**Core Engines:** `Python` • `Streamlit` • `Pandas` • `Plotly`")
-            st.link_button("Launch FHSIS Dashboard 🚀", "https://abra-fhsis.streamlit.app/") # Replace '#' with your actual deployed Streamlit link
+            st.link_button("Launch FHSIS Dashboard 🚀", "https://abra-fhsis.streamlit.app/")
+            
+        # --- NEW QA & PRODUCT STRATEGY SECTION ---
+        with st.expander("🎯 View QA & Product Strategy Highlights"):
+            st.markdown("""
+            Beyond core data engineering, I actively lead end-to-end Quality Assurance (QA) and Product Strategy for this application to ensure enterprise-grade reliability. 
+
+            **Key Competencies Demonstrated:**
+            * 🧠 **Edge-Case Logic & Data Integrity:** Identified critical visualization breaks (e.g., funnel chart logic failures during dynamic user filtering) and engineered smart UI fallbacks to protect data integrity.
+            * 📏 **UI/UX & Pixel-Perfect Auditing:** Diagnosed and resolved complex CSS Flexbox alignment issues and native framework spacing bugs to achieve strict, professional visual standards.
+            * 🌐 **Cross-Environment Auditing:** Conducted rigorous testing outside the standard web UI, including custom print-engine rendering (`@media print` CSS) to ensure digital dashboards convert flawlessly to physical executive reports.
+            * 🚀 **Product Strategy & Vision:** Continuously aligned application architecture, copy, and branding with high-level executive use cases, ensuring the tool solves actual business problems rather than just displaying data.
+            """)
 
     # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
     with st.container(border=True):
