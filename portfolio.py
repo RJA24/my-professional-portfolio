@@ -8,7 +8,7 @@ st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide"
 # --- DATA & ASSETS ---
 df = pd.DataFrame(dict(
     r=[90, 85, 80, 75, 85, 85, 85],
-    theta=['Python (AI-Assisted)','Data Tracking','Video Editing','Canva Design','NIP Automation', 'IT & Admin Support', 'QA & Product Strategy],
+    theta=['Python (AI-Assisted)','Data Tracking','Video Editing','Canva Design','NIP Automation', 'IT & Admin Support', 'QA & Product Strategy'],
     Details=[
         'Building Streamlit apps & automating workflows via AI',
         'Real-time dashboards & advanced Google Sheets auditing',
