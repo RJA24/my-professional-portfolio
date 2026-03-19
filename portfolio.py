@@ -394,6 +394,23 @@ elif page == "🛸 Mission Logs (Projects)":
             Transformed a fragmented, highly manual monthly reporting workflow into a fully automated, real-time dashboard. The system empowers health officials to instantly identify high-risk demographic hotspots, track Year-over-Year growth, and generate boardroom-ready printable reports with a single click.
             """)
 
+        with st.expander("🎯 View Technical Achievements, QA & Business Impact"):
+            st.markdown("""
+            **Key Contributions & Technical Achievements:**
+            * **Enterprise Database Migration:** Scaled the application's architecture by migrating the backend from standard spreadsheets to Supabase (cloud storage). This eliminated API rate limits, prevented server timeouts, and enabled lightning-fast, simultaneous access for multiple stakeholders.
+            * **Automated ETL Pipeline:** Engineered a robust Python/Pandas extraction engine that automatically reads messy, multi-sheet government Excel templates. The system dynamically standardizes headers, merges historical data, and cleans demographic inconsistencies with zero manual data entry.
+            * **Advanced Interactive Analytics:** Designed 7 comprehensive modules featuring geospatial heatmaps, patient care cascades (Funnel/Waterfall charts), and automated forecasting using Plotly Express.
+            * **Automated Quality Assurance:** Developed an algorithmic Data Quality Audit system that silently scans incoming data to flag statistical anomalies—ensuring strict reporting integrity.
+
+            **QA & Product Strategy:**
+            * 🧠 **Edge-Case Logic & Data Integrity:** Actively QA tested the dashboard, identifying critical visualization breaks (e.g., funnel chart logic failures during dynamic user filtering) and engineered smart UI fallbacks.
+            * 📏 **UI/UX & Pixel-Perfect Auditing:** Diagnosed and resolved complex CSS Flexbox alignment issues and native framework spacing bugs to achieve strict, professional visual standards.
+            * 🌐 **Cross-Environment Auditing:** Conducted rigorous testing outside the standard web UI, including custom print-engine rendering (`@media print` CSS) to ensure digital dashboards convert flawlessly to physical executive reports.
+
+            **Business Impact:**
+            Transformed a fragmented, highly manual monthly reporting workflow into a fully automated, real-time dashboard. The system empowers health officials to instantly identify high-risk demographic hotspots, track Year-over-Year growth, and generate boardroom-ready printable reports with a single click.
+            """)
+
     # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
     with st.container(border=True):
         p0_col1, p0_col2 = st.columns([1, 2])
