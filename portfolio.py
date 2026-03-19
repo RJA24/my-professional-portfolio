@@ -15,10 +15,10 @@ df = pd.DataFrame(dict(
         'Premiere Pro & CapCut for YouTube, TikTok, & Reels',
         'High-impact visual assets, mapping, & event collateral',
         'Streamlining public health reporting & data systems',
-        'Hardware troubleshooting, presentation design, & formatting'
+        'Hardware troubleshooting, presentation design, & formatting',
         'End-to-end app testing, edge-case debugging, & UI/UX auditing'
     ]
-))
+))s
 
 fig = px.line_polar(
     df, 
