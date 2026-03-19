@@ -394,16 +394,16 @@ elif page == "🛸 Mission Logs (Projects)":
             Transformed a fragmented, highly manual monthly reporting workflow into a fully automated, real-time dashboard. The system empowers health officials to instantly identify high-risk demographic hotspots, track Year-over-Year growth, and generate boardroom-ready printable reports with a single click.
             """)
 
-        with st.expander("🎯 View Technical Achievements, QA & Business Impact"):
+        with st.expander("🎯 View QA & Product Strategy Highlights"):
             st.markdown("""
-            **QA & Product Strategy:**
-            * 🧠 **Edge-Case Logic & Data Integrity:** Actively QA tested the dashboard, identifying critical visualization breaks (e.g., funnel chart logic failures during dynamic user filtering) and engineered smart UI fallbacks.
+            Beyond core data engineering, I actively lead end-to-end Quality Assurance (QA) and Product Strategy for this application to ensure enterprise-grade reliability.
+
+            **Key Competencies Demonstrated:**
+            * 🧠 **Edge-Case Logic & Data Integrity:** Identified critical visualization breaks (e.g., funnel chart logic failures during dynamic user filtering) and engineered smart UI fallbacks to protect data integrity.
             * 📏 **UI/UX & Pixel-Perfect Auditing:** Diagnosed and resolved complex CSS Flexbox alignment issues and native framework spacing bugs to achieve strict, professional visual standards.
             * 🌐 **Cross-Environment Auditing:** Conducted rigorous testing outside the standard web UI, including custom print-engine rendering (`@media print` CSS) to ensure digital dashboards convert flawlessly to physical executive reports.
-
-            **Business Impact:**
-            Transformed a fragmented, highly manual monthly reporting workflow into a fully automated, real-time dashboard. The system empowers health officials to instantly identify high-risk demographic hotspots, track Year-over-Year growth, and generate boardroom-ready printable reports with a single click.
-            """)
+            * 🚀 **Product Strategy & Vision:** Continuously aligned application architecture, copy, and branding with high-level executive use cases, ensuring the tool solves actual business problems rather than just displaying data.
+            """")
 
     # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
     with st.container(border=True):
