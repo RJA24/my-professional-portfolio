@@ -403,7 +403,7 @@ elif page == "🛸 Mission Logs (Projects)":
             * 📏 **UI/UX & Pixel-Perfect Auditing:** Diagnosed and resolved complex CSS Flexbox alignment issues and native framework spacing bugs to achieve strict, professional visual standards.
             * 🌐 **Cross-Environment Auditing:** Conducted rigorous testing outside the standard web UI, including custom print-engine rendering (`@media print` CSS) to ensure digital dashboards convert flawlessly to physical executive reports.
             * 🚀 **Product Strategy & Vision:** Continuously aligned application architecture, copy, and branding with high-level executive use cases, ensuring the tool solves actual business problems rather than just displaying data.
-            """")
+            """)
 
     # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
     with st.container(border=True):
