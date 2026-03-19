@@ -18,7 +18,7 @@ df = pd.DataFrame(dict(
         'Hardware troubleshooting, presentation design, & formatting',
         'End-to-end app testing, edge-case debugging, & UI/UX auditing'
     ]
-))s
+))
 
 fig = px.line_polar(
     df, 
