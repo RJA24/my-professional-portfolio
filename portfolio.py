@@ -369,27 +369,29 @@ elif page == "🛸 Mission Logs (Projects)":
     st.write("A detailed archive of my data monitoring systems, visual design layouts, public health tracking architecture, and video content.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # --- NEW: ABRA FHSIS DASHBOARD ---
+    # --- ABRA FHSIS COMMAND CENTER ---
     with st.container(border=True):
         fhsis_col1, fhsis_col2 = st.columns([1, 2])
         with fhsis_col1:
             st.image("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop", use_container_width=True)
         with fhsis_col2:
-            st.header("Abra FHSIS Dashboard")
-            st.write("A comprehensive web application designed to track, monitor, and visualize the 8 Priority Health Outcomes for the province of Abra. This tool streamlines Field Health Services Information System (FHSIS) reporting, turning raw public health data into actionable, easy-to-read metrics.")
-            st.markdown("**Core Engines:** `Python` • `Streamlit` • `Pandas` • `Plotly`")
+            st.header("Abra FHSIS Command Center")
+            st.markdown("**Role:** Lead Data Developer / Data Controller III")
+            st.markdown("**Tech Stack:** `Python` • `Streamlit` • `Pandas` • `Plotly Express` • `Supabase (PostgreSQL)`")
+            st.write("Architected, developed, and deployed a centralized data intelligence hub for the Provincial Health Office. The application acts as an enterprise-grade reporting engine that automatically ingests, cleans, and visualizes Field Health Services Information System (FHSIS) data across 27 Rural Health Units (RHUs).")
             st.link_button("Launch FHSIS Dashboard 🚀", "https://abra-fhsis.streamlit.app/")
-            
-        # --- NEW QA & PRODUCT STRATEGY SECTION ---
-        with st.expander("🎯 View QA & Product Strategy Highlights"):
-            st.markdown("""
-            Beyond core data engineering, I actively lead end-to-end Quality Assurance (QA) and Product Strategy for this application to ensure enterprise-grade reliability. 
 
-            **Key Competencies Demonstrated:**
-            * 🧠 **Edge-Case Logic & Data Integrity:** Identified critical visualization breaks (e.g., funnel chart logic failures during dynamic user filtering) and engineered smart UI fallbacks to protect data integrity.
-            * 📏 **UI/UX & Pixel-Perfect Auditing:** Diagnosed and resolved complex CSS Flexbox alignment issues and native framework spacing bugs to achieve strict, professional visual standards.
-            * 🌐 **Cross-Environment Auditing:** Conducted rigorous testing outside the standard web UI, including custom print-engine rendering (`@media print` CSS) to ensure digital dashboards convert flawlessly to physical executive reports.
-            * 🚀 **Product Strategy & Vision:** Continuously aligned application architecture, copy, and branding with high-level executive use cases, ensuring the tool solves actual business problems rather than just displaying data.
+        with st.expander("🎯 View Technical Achievements & Business Impact"):
+            st.markdown("""
+            **Key Contributions & Technical Achievements:**
+            * **Enterprise Database Migration:** Scaled the application's architecture by migrating the backend from standard spreadsheets to Supabase (cloud storage). This eliminated API rate limits, prevented server timeouts, and enabled lightning-fast, simultaneous access for multiple stakeholders.
+            * **Automated ETL Pipeline:** Engineered a robust Python/Pandas extraction engine that automatically reads messy, multi-sheet government Excel templates. The system dynamically standardizes headers, merges historical data, and cleans demographic inconsistencies (e.g., mapping 'M'/'F' to 'Male'/'Female') with zero manual data entry.
+            * **Advanced Interactive Analytics:** Designed 7 comprehensive modules (Immunization, NCD, WASH, Maternal Health, Family Planning, Mortality, YoY Comparison) featuring geospatial heatmaps, patient care cascades (Funnel/Waterfall charts), and automated forecasting using Plotly Express.
+            * **Automated Quality Assurance:** Developed an algorithmic Data Quality Audit system that silently scans incoming data to flag statistical anomalies—such as >100% coverage rates, duplicated submissions, or negative patient dropout rates—ensuring strict reporting integrity.
+            * **Secure Architecture & RBAC:** Implemented Role-Based Access Control (RBAC) to secure the administrative data uploader, alongside a custom bot-filtering script to accurately log and monitor genuine human traffic.
+
+            **Business Impact:**
+            Transformed a fragmented, highly manual monthly reporting workflow into a fully automated, real-time dashboard. The system empowers health officials to instantly identify high-risk demographic hotspots, track Year-over-Year growth, and generate boardroom-ready printable reports with a single click.
             """)
 
     # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
