@@ -416,7 +416,7 @@ elif page == "🛸 Mission Logs (Projects)":
             st.header("SIA 2026 Dashboard")
             st.write("A rapid-response real-time tracking application currently in development, designed specifically for the 2026 Supplemental Immunization Activity (SIA) campaign. Built to monitor daily vaccination targets, generate geospatial coverage maps, and rapidly identify zero-dose children across the province.")
             st.markdown("**Core Engines:** `Python` • `Streamlit` • `Pandas` • `Plotly`")
-            st.link_button("Launch SIA 2026 App 🚀", "#") # Update this link when ready!
+            st.link_button("Launch SIA 2026 App 🚀", "https://abrasia2026.streamlit.app/") # Update this link when ready!
 
     # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
     with st.container(border=True):
