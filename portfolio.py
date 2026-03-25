@@ -1,8 +1,8 @@
+# MUST BE FIRST
 import streamlit as st
 import plotly.express as px
 import pandas as pd
 
-# MUST BE FIRST
 st.set_page_config(page_title="Space Portfolio | Ron Jay C. Ayup", layout="wide", page_icon="🚀")
 
 # --- DATA & ASSETS ---
@@ -370,7 +370,7 @@ elif page == "🛸 Mission Logs (Projects)":
     st.write("A detailed archive of my data monitoring systems, visual design layouts, public health tracking architecture, and video content.")
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # --- ABRA FHSIS COMMAND CENTER ---
+    # --- ABRA FHSIS COMMAND CENTER (UPDATED) ---
     with st.container(border=True):
         fhsis_col1, fhsis_col2 = st.columns([1, 2])
         with fhsis_col1:
@@ -379,20 +379,21 @@ elif page == "🛸 Mission Logs (Projects)":
             st.header("Abra FHSIS Command Center")
             st.markdown("**Role:** Lead Data Developer / Data Controller III")
             st.markdown("**Tech Stack:** `Python` • `Streamlit` • `Pandas` • `Plotly Express` • `Supabase (PostgreSQL)`")
-            st.write("Architected, developed, and deployed a centralized data intelligence hub for the Provincial Health Office. The application acts as an enterprise-grade reporting engine that automatically ingests, cleans, and visualizes Field Health Services Information System (FHSIS) data across 27 Rural Health Units (RHUs).")
+            st.write("Architected, developed, and deployed a massive 4,000+ line enterprise-grade reporting engine. It automatically ingests, cleans, and visualizes Field Health Services Information System (FHSIS) data across 27 Rural Health Units (RHUs). Recently upgraded with intelligent ETL parsers that auto-heal DOH formatting errors, supporting multiple years including dynamic 2026 templates.")
             st.link_button("Launch FHSIS Dashboard 🚀", "https://abra-fhsis.streamlit.app/")
 
         with st.expander("🎯 View Technical Achievements & Business Impact"):
             st.markdown("""
             **Key Contributions & Technical Achievements:**
-            * **Enterprise Database Migration:** Scaled the application's architecture by migrating the backend from standard spreadsheets to Supabase (cloud storage). This eliminated API rate limits, prevented server timeouts, and enabled lightning-fast, simultaneous access for multiple stakeholders.
-            * **Automated ETL Pipeline:** Engineered a robust Python/Pandas extraction engine that automatically reads messy, multi-sheet government Excel templates. The system dynamically standardizes headers, merges historical data, and cleans demographic inconsistencies (e.g., mapping 'M'/'F' to 'Male'/'Female') with zero manual data entry.
-            * **Advanced Interactive Analytics:** Designed 7 comprehensive modules (Immunization, NCD, WASH, Maternal Health, Family Planning, Mortality, YoY Comparison) featuring geospatial heatmaps, patient care cascades (Funnel/Waterfall charts), and automated forecasting using Plotly Express.
-            * **Automated Quality Assurance:** Developed an algorithmic Data Quality Audit system that silently scans incoming data to flag statistical anomalies—such as >100% coverage rates, duplicated submissions, or negative patient dropout rates—ensuring strict reporting integrity.
-            * **Secure Architecture & RBAC:** Implemented Role-Based Access Control (RBAC) to secure the administrative data uploader, alongside a custom bot-filtering script to accurately log and monitor genuine human traffic.
+            * **Massive Scale & Modularity:** Scaled the application to track 27 multi-sheet modules including Child Immunization, NCD, WASH, Maternal Health, Family Planning, and Mortality & Injuries.
+            * **Dynamic Linkage-to-Care Cascades:** Engineered complex funnel charts and waterfall pipelines that intelligently adapt to available data (e.g., detecting new HIV indicators for 2026), providing instant visual feedback on patient drop-off rates and medical cascades.
+            * **Auto-Healing ETL Pipeline:** Built a robust Python/Pandas extraction engine that automatically reads messy government Excel templates. The system dynamically standardizes headers, intelligently bypasses blank data, and 'auto-heals' DOH formatting errors and typos with zero manual intervention.
+            * **Advanced Interactive Analytics:** Designed comprehensive dashboards featuring geospatial heatmaps, automated Family Planning (CPR) calculations, and Year-over-Year (YoY) comparison engines.
+            * **Automated Quality Assurance:** Developed an algorithmic Data Quality Audit system that silently scans incoming data to flag statistical anomalies—such as >100% coverage rates or negative patient dropout rates—ensuring strict reporting integrity.
+            * **Master Export & Cloud Storage:** Implemented a one-click Master Regional Export feature that seamlessly compiles a year's worth of data into official Excel formatting, powered by a persistent Supabase backend with automated backup/restore functionality.
 
             **Business Impact:**
-            Transformed a fragmented, highly manual monthly reporting workflow into a fully automated, real-time dashboard. The system empowers health officials to instantly identify high-risk demographic hotspots, track Year-over-Year growth, and generate boardroom-ready printable reports with a single click.
+            Transformed a fragmented, highly manual monthly reporting workflow into a fully automated, real-time dashboard. The system empowers health officials to instantly identify high-risk demographic hotspots, track multi-year growth, and generate boardroom-ready reports in seconds.
             """)
 
         with st.expander("🎯 View QA & Product Strategy Highlights"):
@@ -405,6 +406,17 @@ elif page == "🛸 Mission Logs (Projects)":
             * 🌐 **Cross-Environment Auditing:** Conducted rigorous testing outside the standard web UI, including custom print-engine rendering (`@media print` CSS) to ensure digital dashboards convert flawlessly to physical executive reports.
             * 🚀 **Product Strategy & Vision:** Continuously aligned application architecture, copy, and branding with high-level executive use cases, ensuring the tool solves actual business problems rather than just displaying data.
             """)
+
+    # --- NEW: SIA 2026 DASHBOARD ---
+    with st.container(border=True):
+        sia_col1, sia_col2 = st.columns([1, 2])
+        with sia_col1:
+            st.image("https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=2000&auto=format&fit=crop", use_container_width=True)
+        with sia_col2:
+            st.header("SIA 2026 Dashboard")
+            st.write("A rapid-response real-time tracking application currently in development, designed specifically for the 2026 Supplemental Immunization Activity (SIA) campaign. Built to monitor daily vaccination targets, generate geospatial coverage maps, and rapidly identify zero-dose children across the province.")
+            st.markdown("**Core Engines:** `Python` • `Streamlit` • `Pandas` • `Plotly`")
+            st.link_button("Launch SIA 2026 App 🚀", "#") # Update this link when ready!
 
     # --- EXISTING: VACCINE INVENTORY COMMAND CENTER ---
     with st.container(border=True):
