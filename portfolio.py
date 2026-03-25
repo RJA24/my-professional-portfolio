@@ -379,7 +379,7 @@ elif page == "🛸 Mission Logs (Projects)":
             st.header("Abra FHSIS Command Center")
             st.markdown("**Role:** Lead Data Developer / Data Controller III")
             st.markdown("**Tech Stack:** `Python` • `Streamlit` • `Pandas` • `Plotly Express` • `Supabase (PostgreSQL)`")
-            st.write("Architected, developed, and deployed a massive 4,000+ line enterprise-grade reporting engine. It automatically ingests, cleans, and visualizes Field Health Services Information System (FHSIS) data across 27 Rural Health Units (RHUs). Recently upgraded with intelligent ETL parsers that auto-heal DOH formatting errors, supporting multiple years including dynamic 2026 templates.")
+            st.write("Architected, developed, and deployed a robust, enterprise-grade reporting engine. It automatically ingests, cleans, and visualizes Field Health Services Information System (FHSIS) data across 27 Rural Health Units (RHUs). Recently upgraded with intelligent ETL parsers that auto-heal DOH formatting errors, supporting multiple years including dynamic 2026 templates.")
             st.link_button("Launch FHSIS Dashboard 🚀", "https://abra-fhsis.streamlit.app/")
 
         with st.expander("🎯 View Technical Achievements & Business Impact"):
